@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="rootNode" prefHeight="598.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SupplierItemController">
+   <children>
+      <ImageView fitHeight="598.0" fitWidth="1000.0">
+         <image>
+            <Image url="@../asserts/20.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtsupplierId" layoutX="100.0" layoutY="132.0" prefHeight="24.0" prefWidth="211.0" />
+      <Text layoutX="135.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="supplierId" />
+      <TextField fx:id="txtitemId" layoutX="395.0" layoutY="132.0" prefHeight="24.0" prefWidth="211.0" />
+      <Text layoutX="430.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="itemId" />
+      <TextField fx:id="txtdate" layoutX="100.0" layoutY="223.0" prefHeight="24.0" prefWidth="211.0" />
+      <Text layoutX="135.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date" />
+      <TextField fx:id="txtqty" layoutX="383.0" layoutY="223.0" prefHeight="24.0" prefWidth="211.0" />
+      <Text layoutX="418.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qty" />
+      <TableView fx:id="tablesupplierItem" layoutX="183.0" layoutY="342.0" prefHeight="200.0" prefWidth="350.0">
+        <columns>
+          <TableColumn fx:id="colsupplierId" prefWidth="103.0" text="supplierId" />
+          <TableColumn fx:id="colitemId" prefWidth="83.0" text="itemId" />
+            <TableColumn fx:id="coldate" prefWidth="83.0" text="date" />
+            <TableColumn fx:id="colqty" prefWidth="83.0" text="qty" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnsave" layoutX="832.0" layoutY="132.0" onAction="#btnsaveOnAction" prefHeight="63.0" prefWidth="77.0" text="save" />
+   </children>
+</AnchorPane>

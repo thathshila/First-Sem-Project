@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="rootNode" prefHeight="600.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ItemFormController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1001.0">
+         <image>
+            <Image url="@../asserts/13.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="354.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE  ITEM-STOCK">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="129.0" fitWidth="155.0" layoutX="832.0" layoutY="14.0">
+         <image>
+            <Image url="@../asserts/3.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="111.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemId">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtItemId" layoutX="68.0" layoutY="104.0" prefHeight="30.0" prefWidth="314.0" />
+      <Text layoutX="102.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemName">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtItemName" layoutX="68.0" layoutY="181.0" prefHeight="30.0" prefWidth="314.0" />
+      <TextField fx:id="txtQuantity" layoutX="443.0" layoutY="104.0" prefHeight="30.0" prefWidth="314.0" />
+      <Text layoutX="466.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtPrice" layoutX="450.0" layoutY="181.0" prefHeight="30.0" prefWidth="314.0" />
+      <Text layoutX="466.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtDate" layoutX="68.0" layoutY="261.0" prefHeight="30.0" prefWidth="314.0" />
+      <Text layoutX="102.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtDescription" layoutX="450.0" layoutY="261.0" prefHeight="30.0" prefWidth="314.0" />
+      <Text layoutX="475.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tblItem" layoutX="86.0" layoutY="341.0" onMouseClicked="#mouseClickOnAction" prefHeight="245.0" prefWidth="683.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="96.0" text="Id" />
+          <TableColumn fx:id="colName" prefWidth="113.0" text="Name" />
+            <TableColumn fx:id="colQuantity" prefWidth="113.0" text="Quantity" />
+            <TableColumn fx:id="colPrice" prefWidth="92.0" text="Price" />
+            <TableColumn fx:id="colDate" prefWidth="121.0" text="Date" />
+            <TableColumn fx:id="colDescription" prefWidth="147.0" text="Description" />
+        </columns>
+      </TableView>
+      <Button layoutX="866.0" layoutY="178.0" mnemonicParsing="false" onAction="#btnSAVEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="SAVE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="866.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="UPDATE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="866.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="SEARCH">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="866.0" layoutY="528.0" mnemonicParsing="false" onAction="#btnBACKOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="BACK">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="866.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="DELETE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button layoutX="866.0" layoutY="255.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="CLEAR">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

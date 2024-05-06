@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootNode" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PlaceOrderFormController">
+   <children>
+      <ImageView fitHeight="694.0" fitWidth="1131.0" layoutX="-11.0">
+         <image>
+            <Image url="@../asserts/7.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="461.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLACE ORDER" wrappingWidth="229.5">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="106.0" fitWidth="146.0" layoutX="965.0" layoutY="7.0">
+         <image>
+            <Image url="@../asserts/3.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtOrderId" layoutX="134.0" layoutY="108.0" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="txtDate" layoutX="134.0" layoutY="164.0" prefHeight="28.0" prefWidth="219.0" />
+      <Text layoutX="23.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Id">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="46.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="746.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnNew" layoutX="915.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnNewOnAction" prefHeight="39.0" prefWidth="104.0" style="-fx-background-color: orange;" text="NEW" />
+      <TextField fx:id="txtCustomerName" layoutX="888.0" layoutY="246.0" prefHeight="28.0" prefWidth="219.0" />
+      <Text layoutX="722.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="460.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCustomerId" layoutX="888.0" layoutY="193.0" prefHeight="28.0" prefWidth="219.0" />
+      <Text layoutX="765.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtAddress" layoutX="888.0" layoutY="351.0" prefHeight="28.0" prefWidth="219.0" />
+      <Text layoutX="764.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tblPlaceOrder" layoutX="17.0" layoutY="480.0" prefHeight="200.0" prefWidth="915.0">
+        <columns>
+          <TableColumn fx:id="colItemId" prefWidth="120.0" text="ItemId" />
+          <TableColumn fx:id="colItemName" prefWidth="166.0" text="ItemName" />
+            <TableColumn fx:id="colQuantity" prefWidth="141.0" text="Quantity" />
+            <TableColumn fx:id="colPrice" prefWidth="152.0" text="Price" />
+            <TableColumn fx:id="colTotal" prefWidth="158.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="177.0" text="Action" />
+        </columns>
+      </TableView>
+      <JFXComboBox fx:id="combItemId" layoutX="134.0" layoutY="217.0" onAction="#combItemIdOnAction" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: white;" />
+      <Text layoutX="28.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Id">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="combNIC" layoutX="429.0" layoutY="128.0" onAction="#combNICOnAction" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtItemName" layoutX="134.0" layoutY="272.0" prefHeight="28.0" prefWidth="219.0" />
+      <Text layoutX="8.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHand">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="453.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtQuantity" layoutX="429.0" layoutY="202.0" prefHeight="28.0" prefWidth="219.0" />
+      <Button fx:id="btnADD" layoutX="738.0" layoutY="409.0" mnemonicParsing="false" onAction="#btnADDOnAction" prefHeight="51.0" prefWidth="138.0" style="-fx-background-color: orange;" text="ADD TO CART" />
+      <Button fx:id="btnBack" layoutX="974.0" layoutY="629.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="39.0" prefWidth="97.0" style="-fx-background-color: orange;" text="BACK" />
+      <JFXComboBox fx:id="comboPaymentMethod" layoutX="423.0" layoutY="374.0" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: white;" />
+      <Text layoutX="431.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment method">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="txtAreaNetBalance" layoutX="949.0" layoutY="411.0" prefHeight="91.0" prefWidth="146.0" style="-fx-background-color: orange;" />
+      <Text layoutX="974.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Balance">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnPlaceOrder" layoutX="964.0" layoutY="533.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: orange;" text="Place Order" />
+      <JFXComboBox fx:id="combUserId" layoutX="423.0" layoutY="286.0" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: white;" />
+      <Text layoutX="445.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Id">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtContact" layoutX="888.0" layoutY="293.0" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="txtQtyOnHand" layoutX="134.0" layoutY="383.0" prefHeight="28.0" prefWidth="219.0" />
+      <Text layoutX="22.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemName">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtPrice" layoutX="134.0" layoutY="328.0" prefHeight="28.0" prefWidth="219.0" />
+      <Text layoutX="46.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="716.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Customer">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
