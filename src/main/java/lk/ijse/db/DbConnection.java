@@ -17,6 +17,7 @@ import java.sql.SQLException;
             );
         }
 
+
         public static DbConnection getInstance() throws SQLException {
             if(dbConnection == null) {
                 dbConnection = new DbConnection();
