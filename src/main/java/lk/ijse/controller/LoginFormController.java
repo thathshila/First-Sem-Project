@@ -8,9 +8,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.db.DbConnection;
+import lk.ijse.util.Regex;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -23,6 +25,9 @@ public class LoginFormController {
     private Button btnLOGIN;
 
     @FXML
+    private Button btnForgotpassword;
+
+    @FXML
     private Button btnRegister;
     public TextField txtPassword;
     public TextField txtUsername;
@@ -30,7 +35,7 @@ public class LoginFormController {
     public AnchorPane rootNode;
 
     @FXML
-    public  void btnLOGINOnAction(ActionEvent event) {
+    public  void btnLOGINOnAction(ActionEvent event) throws IOException{
         String username = txtUsername.getText();
         String pw = txtPassword.getText();
 
@@ -38,8 +43,6 @@ public class LoginFormController {
             checkCredential(username, pw);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
     private void checkCredential(String username, String pw) throws SQLException, IOException {
@@ -90,7 +93,26 @@ public class LoginFormController {
         txtPassword.requestFocus();
     }
 
-    public void passwordOnAction(ActionEvent actionEvent) {
+    public void passwordOnAction(ActionEvent actionEvent) throws IOException{
         btnLOGINOnAction(actionEvent);
+    }
+
+    public void btnForgotpasswordOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/RegisterForm.fxml"));
+
+        Scene scene = new Scene(rootNode);
+
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Register Form");
+    }
+
+    public void txtUsernameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.USERNAME,txtUsername);
+    }
+
+    public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.PASSWORD,txtPassword);
     }
 }

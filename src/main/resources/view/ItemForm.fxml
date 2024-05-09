@@ -1,101 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="600.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ItemFormController">
+<AnchorPane fx:id="rootNode" prefHeight="694.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ItemFormController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1001.0">
-         <image>
-            <Image url="@../asserts/13.jpg" />
-         </image>
-      </ImageView>
-      <Text layoutX="354.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE  ITEM-STOCK">
+      <Text layoutX="373.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE  ITEM-STOCK" wrappingWidth="288.7978515625">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Text>
-      <ImageView fitHeight="129.0" fitWidth="155.0" layoutX="832.0" layoutY="14.0">
+      <ImageView fitHeight="129.0" fitWidth="155.0" layoutX="974.0">
          <image>
             <Image url="@../asserts/3.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="111.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemId">
+      <Text layoutX="83.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemId">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtItemId" layoutX="68.0" layoutY="104.0" prefHeight="30.0" prefWidth="314.0" />
-      <Text layoutX="102.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemName">
+      <TextField fx:id="txtItemId" layoutX="68.0" layoutY="134.0" onKeyReleased="#txtItemIdOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="79.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemName">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtItemName" layoutX="68.0" layoutY="181.0" prefHeight="30.0" prefWidth="314.0" />
-      <TextField fx:id="txtQuantity" layoutX="443.0" layoutY="104.0" prefHeight="30.0" prefWidth="314.0" />
-      <Text layoutX="466.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+      <TextField fx:id="txtItemName" layoutX="59.0" layoutY="227.0" onKeyReleased="#txtItemNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <TextField fx:id="txtQuantity" layoutX="579.0" layoutY="134.0" onKeyReleased="#txtQuantityOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="586.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtPrice" layoutX="450.0" layoutY="181.0" prefHeight="30.0" prefWidth="314.0" />
-      <Text layoutX="466.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+      <TextField fx:id="txtPrice" layoutX="579.0" layoutY="227.0" onKeyReleased="#txtPriceOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="592.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDate" layoutX="68.0" layoutY="261.0" prefHeight="30.0" prefWidth="314.0" />
-      <Text layoutX="102.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+      <TextField fx:id="txtDate" layoutX="68.0" layoutY="332.0" onKeyReleased="#txtDateOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="83.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDescription" layoutX="450.0" layoutY="261.0" prefHeight="30.0" prefWidth="314.0" />
-      <Text layoutX="475.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+      <TextField fx:id="txtDescription" layoutX="579.0" layoutY="332.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="592.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TableView fx:id="tblItem" layoutX="86.0" layoutY="341.0" onMouseClicked="#mouseClickOnAction" prefHeight="245.0" prefWidth="683.0">
+      <TableView fx:id="tblItem" layoutX="74.0" layoutY="418.0" onMouseClicked="#mouseClickOnAction" prefHeight="245.0" prefWidth="823.0" style="-fx-background-color: lightgreen;">
         <columns>
           <TableColumn fx:id="colId" prefWidth="96.0" text="Id" />
           <TableColumn fx:id="colName" prefWidth="113.0" text="Name" />
             <TableColumn fx:id="colQuantity" prefWidth="113.0" text="Quantity" />
-            <TableColumn fx:id="colPrice" prefWidth="92.0" text="Price" />
-            <TableColumn fx:id="colDate" prefWidth="121.0" text="Date" />
-            <TableColumn fx:id="colDescription" prefWidth="147.0" text="Description" />
+            <TableColumn fx:id="colPrice" prefWidth="137.0" text="Price" />
+            <TableColumn fx:id="colDate" prefWidth="161.0" text="Date" />
+            <TableColumn fx:id="colDescription" prefWidth="202.0" text="Description" />
         </columns>
       </TableView>
-      <Button layoutX="866.0" layoutY="178.0" mnemonicParsing="false" onAction="#btnSAVEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="SAVE">
+      <Button layoutX="974.0" layoutY="191.0" mnemonicParsing="false" onAction="#btnSAVEOnAction" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: green;" text="SAVE">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="866.0" layoutY="390.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="UPDATE">
+      <Button layoutX="979.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: green;" text="UPDATE">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="866.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="SEARCH">
+      <Button layoutX="974.0" layoutY="530.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: green;" text="SEARCH">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="866.0" layoutY="528.0" mnemonicParsing="false" onAction="#btnBACKOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="BACK">
+      <Button layoutX="974.0" layoutY="617.0" mnemonicParsing="false" onAction="#btnBACKOnAction" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: green;" text="BACK">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="866.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="DELETE">
+      <Button layoutX="979.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: green;" text="DELETE">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="866.0" layoutY="255.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="CLEAR">
+      <Button layoutX="979.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" prefHeight="53.0" prefWidth="120.0" style="-fx-background-color: green;" text="CLEAR">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
    </children>

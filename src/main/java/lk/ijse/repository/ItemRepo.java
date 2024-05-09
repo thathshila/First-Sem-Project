@@ -67,28 +67,6 @@ public class ItemRepo {
 
         return pstm.executeUpdate() > 0;
     }
-      /*  for (OrderItem od : odList) {
-            boolean isUpdateQty = updateQty(od.getItem_id(), od.getQuantity());
-            if (!isUpdateQty) {
-                return false;
-            }
-        }
-        return true;
-    }*/
-
-/*    private static updateQty(String Item_id, int Quantity) throws SQLException {
-        String sql = "Update Items set Quantity = Quantity - ? where Item_id = ?";
-
-        PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                .prepareStatement(sql);
-
-        pstm.setInt(1, Quantity);
-        pstm.setString(2, Item_id);
-
-        return pstm.executeUpdate() > 0;
-    }*/
-
-
 
     public static boolean DELETE(String ItemId) throws SQLException {
         String sql = "DELETE FROM Items WHERE Item_id = ?";
@@ -164,11 +142,23 @@ public class ItemRepo {
         pstm.setObject(3, items.getQuantity());
         pstm.setObject(4, items.getPrice());
 
-
-
         return pstm.executeUpdate() > 0;
     }
+
+    public static String getCurrentId() throws SQLException {
+        String sql = "SELECT Item_id FROM Items ORDER BY Item_id DESC LIMIT 1";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()) {
+            String itemId = resultSet.getString(1);
+            return itemId;
+        }
+        return null;
     }
+}
 
 
 

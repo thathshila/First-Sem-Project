@@ -14,6 +14,5 @@ public class Order {
   private Date date;
   private double Price;
   private String Customer_id;
-  private String Payment_id;
   private String User_id;
 }

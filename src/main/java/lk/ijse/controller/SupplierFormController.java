@@ -8,11 +8,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.Supplier;
 import lk.ijse.model.tm.SupplierTm;
 import lk.ijse.repository.SupplierRepo;
+import lk.ijse.util.Regex;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -40,7 +43,7 @@ public class SupplierFormController {
 
     @FXML
     private Button btnUPDATE;
-    private AnchorPane root;
+
     @FXML
     private TableColumn<?, ?> colAddress;
 
@@ -98,15 +101,18 @@ public class SupplierFormController {
     @FXML
     private TextField txtUnitPrice;
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         setDate();
         setCellValueFactory();
         loadAllSuppliers();
+        getCurrentSupplierId();
     }
+
     private void setDate() {
         LocalDate now = LocalDate.now();
         txtDate.setText(String.valueOf(now));
     }
+
     private void setCellValueFactory() {
         colId.setCellValueFactory(new PropertyValueFactory<>("Supplier_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("Supplier_name"));
@@ -146,13 +152,29 @@ public class SupplierFormController {
         }
     }
 
+    private void getCurrentSupplierId() throws SQLException {
+        String currentId = SupplierRepo.getCurrentId();
+
+        String nextSupplierId = generateNextSupplierId(currentId);
+        txtSupplierId.setText(nextSupplierId);
+    }
+
+    private String generateNextSupplierId(String currentId) {
+        if (currentId != null) {
+            String[] split = currentId.split("S00");
+            int idNum = Integer.parseInt(split[1]);
+            return "S00" + ++idNum;
+        }
+        return "S001";
+    }
+
     @FXML
     void btnBACKOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
         Stage stage = (Stage) rootNode.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Dashboard Form");
+        stage.setTitle("Main Form");
         stage.centerOnScreen();
 
     }
@@ -180,6 +202,7 @@ public class SupplierFormController {
 
         try {
             boolean isDeleted = SupplierRepo.DELETE(Supplier_id);
+            initialize();
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "supplier deleted!").show();
             }
@@ -193,17 +216,18 @@ public class SupplierFormController {
         String Supplier_id = txtSupplierId.getText();
         String Supplier_name = txtSupplierName.getText();
         String Address = txtAddress.getText();
-         String Contact = txtContact.getText();
-        String Quantity = txtQuantity.getText();
+        int Contact = Integer.parseInt(txtContact.getText());
+        int Quantity = Integer.parseInt(txtQuantity.getText());
         double Price = Double.parseDouble(txtUnitPrice.getText());
         String Product = txtProductName.getText();
         Date Date = java.sql.Date.valueOf(txtDate.getText());
         String Nic = txtNIC.getText();
 
-        Supplier supplier = new Supplier(Supplier_id, Supplier_name, Address, Contact, Quantity, Price, Product, Date,Nic);
+        Supplier supplier = new Supplier(Supplier_id, Supplier_name, Address, Contact, Quantity, Price, Product, Date, Nic);
 
         try {
             boolean isSaved = SupplierRepo.SAVE(supplier);
+            initialize();
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "supplier saved!").show();
                 clearFields();
@@ -222,11 +246,11 @@ public class SupplierFormController {
             txtSupplierId.setText(supplier.getSupplier_id());
             txtSupplierName.setText(supplier.getSupplier_name());
             txtAddress.setText(supplier.getAddress());
-          txtContact.setText(supplier.getContact());
+            txtContact.setText(String.valueOf(supplier.getContact()));
             txtProductName.setText(supplier.getProductName());
             txtDate.setText(String.valueOf(supplier.getDate()));
             txtUnitPrice.setText(String.valueOf(supplier.getPrice()));
-           txtQuantity.setText(supplier.getQuantity());
+            txtQuantity.setText(String.valueOf(supplier.getQuantity()));
             txtNIC.setText(supplier.getNIC());
 
         } else {
@@ -239,23 +263,88 @@ public class SupplierFormController {
         String Supplier_id = txtSupplierId.getText();
         String Supplier_name = txtSupplierName.getText();
         String Address = txtAddress.getText();
-        String Contact = txtContact.getText();
-        String Quantity = txtQuantity.getText();
+        int Contact = Integer.parseInt(txtContact.getText());
+        int Quantity = Integer.parseInt(txtQuantity.getText());
         double Price = Double.parseDouble(txtUnitPrice.getText());
         String Product = txtProductName.getText();
         Date Date = java.sql.Date.valueOf(txtDate.getText());
         String Nic = txtNIC.getText();
 
-        Supplier supplier = new Supplier(Supplier_id, Supplier_name, Address, Contact, Quantity, Price, Product, Date,Nic);
+        Supplier supplier = new Supplier(Supplier_id, Supplier_name, Address, Contact, Quantity, Price, Product, Date, Nic);
 
 
         try {
             boolean isUpdated = SupplierRepo.UPDATE(supplier);
             if (isUpdated) {
+                initialize();
                 new Alert(Alert.AlertType.CONFIRMATION, "supplier updated!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+    public void tblSupplierOnMouseClicked(MouseEvent mouseEvent) {
+        Integer index = tblSupplier.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
+        }
+        txtSupplierId.setText(colId.getCellData(index).toString());
+        txtSupplierName.setText(colName.getCellData(index).toString());
+        txtAddress.setText(colAddress.getCellData(index).toString());
+        txtContact.setText(colContact.getCellData(index).toString());
+        txtQuantity.setText(colQuantity.getCellData(index).toString());
+        txtUnitPrice.setText(colUnitPrice.getCellData(index).toString());
+        txtProductName.setText(colProductName.getCellData(index).toString());
+        txtDate.setText(colDate.getCellData(index).toString());
+        txtNIC.setText(colNIC.getCellData(index).toString());
+
+    }
+
+    public void txtAddressOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtSupplierId);
+    }
+
+    public void txtProductNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.NAME, txtProductName);
+    }
+
+    public void txtQuantityOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.QUANTITY, txtQuantity);
+    }
+
+    public void txtUnitPriceOnKeyRelaesed(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtUnitPrice);
+    }
+
+    public void txtNICOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.NIC, txtNIC);
+    }
+
+    public void txtContactOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.CONTACT, txtContact);
+    }
+
+
+    public void txtSupplierNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.NAME, txtSupplierName);
+    }
+
+    public void txtSupplierIdOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.ID, txtSupplierId);
+    }
+
+ /*   public boolean isValied() {
+        if (!Regex.setTextColor(TextField.ID, txtSupplierId)) return false;
+        if (!Regex.setTextColor(TextField.NAME, txtSupplierName)) return false;
+        if (!Regex.setTextColor(TextField.ADDRESS, txtAddress)) return false;
+        if (!Regex.setTextColor(TextField.DATE, txtDate)) return false;
+        if (!Regex.setTextColor(TextField.CONTACT, txtContact)) return false;
+        if (!Regex.setTextColor(TextField.NIC, txtNIC)) return false;
+        if (!Regex.setTextColor(TextField.NAME, txtProductName)) return false;
+        if (!Regex.setTextColor(TextField.PRICE, txtUnitPrice)) return false;
+
+        return true;
+    }*/
+
 }

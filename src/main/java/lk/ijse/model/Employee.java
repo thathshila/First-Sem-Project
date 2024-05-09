@@ -14,7 +14,7 @@ public class Employee {
     private String Employee_id;
     private String Employee_name;
     private String Address;
-    private String Contact;
+    private int Contact;
     private Date Date;
     private double Salary;
     private String WorkingHours;

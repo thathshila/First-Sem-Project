@@ -10,60 +10,55 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
+<AnchorPane fx:id="rootNode" prefHeight="694.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1000.0">
-         <image>
-            <Image url="@../asserts/10.jpg" />
-         </image>
-      </ImageView>
-      <Text layoutX="344.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" MANAGE  CUSTOMERS">
+      <Text layoutX="334.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" MANAGE  CUSTOMERS" wrappingWidth="334.0">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <ImageView fitHeight="118.0" fitWidth="154.0" layoutX="825.0" layoutY="20.0">
+      <ImageView fitHeight="118.0" fitWidth="154.0" layoutX="972.0">
          <image>
             <Image url="@../asserts/3.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtCustomerId" layoutX="67.0" layoutY="138.0" prefHeight="30.0" prefWidth="314.0" />
-      <TextField fx:id="txtCustomerName" layoutX="455.0" layoutY="138.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: fcca46;" />
-      <Text layoutX="96.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustomerId">
+      <TextField fx:id="txtCustomerId" layoutX="67.0" layoutY="172.0" onKeyReleased="#txtCustomerIdOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <TextField fx:id="txtCustomerName" layoutX="566.0" layoutY="172.0" onKeyReleased="#txtCustomerNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="84.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustomerId">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <Text layoutX="476.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustomerName">
+      <Text layoutX="566.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CustomerName">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtContact" layoutX="67.0" layoutY="218.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: fcca46;" />
-      <Text layoutX="96.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+      <TextField fx:id="txtContact" layoutX="67.0" layoutY="270.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="76.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtNICNumber" layoutX="461.0" layoutY="218.0" prefHeight="30.0" prefWidth="314.0" />
-      <Text layoutX="482.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC Number">
+      <TextField fx:id="txtNICNumber" layoutX="566.0" layoutY="270.0" onKeyReleased="#txtNICNumberOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="566.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC Number">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDate" layoutX="67.0" layoutY="292.0" prefHeight="30.0" prefWidth="314.0" />
-      <Text layoutX="96.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+      <TextField fx:id="txtDate" layoutX="67.0" layoutY="361.0" onKeyReleased="#txtDateOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="75.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtAddress" layoutX="461.0" layoutY="292.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: fcca46;" />
-      <Text layoutX="490.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+      <TextField fx:id="txtAddress" layoutX="566.0" layoutY="361.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
+      <Text layoutX="568.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TableView fx:id="tblCustomer" layoutX="67.0" layoutY="364.0" prefHeight="205.0" prefWidth="755.0" style="-fx-background-color: e9edc9;">
+      <TableView fx:id="tblCustomer" layoutX="76.0" layoutY="443.0" onMouseClicked="#tblCustomerOnMouseClicked" prefHeight="224.0" prefWidth="771.0" style="-fx-background-color: lightgreen;">
         <columns>
           <TableColumn fx:id="colCustomerId" prefWidth="111.0" text="CustomerId" />
           <TableColumn fx:id="colName" prefWidth="127.0" text="Name" />
@@ -71,37 +66,37 @@
             <TableColumn fx:id="colContact" prefWidth="116.0" text="Contact" />
             <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="122.0" text="Address" />
             <TableColumn fx:id="colNIC" minWidth="0.0" prefWidth="122.0" text="NIC" />
-            <TableColumn fx:id="colDate" prefWidth="155.0" text="Date" />
+            <TableColumn fx:id="colDate" prefWidth="171.0" text="Date" />
         </columns>
       </TableView>
-      <Button fx:id="btnSAVE" layoutX="864.0" layoutY="181.0" mnemonicParsing="false" onAction="#btnSAVEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="SAVE">
+      <Button fx:id="btnSAVE" layoutX="969.0" layoutY="176.0" mnemonicParsing="false" onAction="#btnSAVEOnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="SAVE">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnDELETE" layoutX="864.0" layoutY="257.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="DELETE">
+      <Button fx:id="btnDELETE" layoutX="969.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="DELETE">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnUPDATE" layoutX="864.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="UPDATE">
+      <Button fx:id="btnUPDATE" layoutX="972.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="UPDATE">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnCLEAR" layoutX="864.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="CLEAR">
+      <Button fx:id="btnCLEAR" layoutX="972.0" layoutY="440.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="CLEAR">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnBACK" layoutX="864.0" layoutY="527.0" mnemonicParsing="false" onAction="#btnBACKOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: e9edc9;" text="BACK">
+      <Button fx:id="btnBACK" layoutX="972.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnBACKOnAction" prefHeight="52.0" prefWidth="133.0" style="-fx-background-color: green;" text="BACK">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btnSEARCH" layoutX="864.0" layoutY="467.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: fcca46;" text="SEARCH">
+      <Button fx:id="btnSEARCH" layoutX="969.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="52.0" prefWidth="133.0" style="-fx-background-color: green;" text="SEARCH">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
    </children>

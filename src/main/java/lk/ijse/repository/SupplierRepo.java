@@ -23,8 +23,8 @@ public class SupplierRepo {
             String Supplier_id = resultSet.getString(1);
             String Supplier_name = resultSet.getString(2);
             String Address = resultSet.getString(3);
-            String Contact = resultSet.getString(4);
-            String Quantity = resultSet.getString(5);
+            int Contact = Integer.parseInt(resultSet.getString(4));
+            int Quantity = Integer.parseInt(resultSet.getString(5));
             double Price = resultSet.getDouble(6);
             String Product = resultSet.getString(7);
             Date Date = resultSet.getDate(8);
@@ -75,8 +75,8 @@ public class SupplierRepo {
             String Supplier_id = resultSet.getString(1);
             String Supplier_name = resultSet.getString(2);
             String Address = resultSet.getString(3);
-            String Contact = resultSet.getString(4);
-            String Quantity = resultSet.getString(5);
+            int Contact = Integer.parseInt(resultSet.getString(4));
+            int Quantity = Integer.parseInt(resultSet.getString(5));
             double Price = resultSet.getDouble(6);
             String ProductName = resultSet.getString(7);
             Date Date = resultSet.getDate(8);
@@ -104,5 +104,19 @@ public class SupplierRepo {
         pstm.setObject(8, supplier.getNIC());
         pstm.setObject(9,supplier.getSupplier_id());
         return pstm.executeUpdate() > 0;
+    }
+
+    public static String getCurrentId() throws SQLException {
+        String sql = "SELECT Supplier_id FROM Supplier ORDER BY Supplier_id DESC LIMIT 1";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()) {
+            String supplierId = resultSet.getString(1);
+            return supplierId;
+        }
+        return null;
     }
 }

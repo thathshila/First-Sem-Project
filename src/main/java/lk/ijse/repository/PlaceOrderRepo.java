@@ -1,15 +1,15 @@
 package lk.ijse.repository;
 
-import javafx.scene.control.Alert;
+
 import lk.ijse.db.DbConnection;
-import lk.ijse.model.Item;
+
 
 import lk.ijse.model.OrderItem;
 import lk.ijse.model.PlaceOrder;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
+
 
 public class PlaceOrderRepo {
 

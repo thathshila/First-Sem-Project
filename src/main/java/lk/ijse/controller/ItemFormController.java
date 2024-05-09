@@ -8,19 +8,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.Item;
-import lk.ijse.model.OrderItem;
 import lk.ijse.model.tm.ItemTm;
 import lk.ijse.repository.ItemRepo;
+import lk.ijse.util.Regex;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+
 
 public class ItemFormController {
 
@@ -82,15 +84,18 @@ public class ItemFormController {
     @FXML
     private TextField txtQuantity;
 
-    public void initialize() {
+    public void initialize() throws SQLException {
         setCellValueFactory();
         loadAllItems();
         setDate();
+        getCurrentItemId();
     }
+
     private void setDate() {
         LocalDate now = LocalDate.now();
         txtDate.setText(String.valueOf(now));
     }
+
     private void setCellValueFactory() {
         colId.setCellValueFactory(new PropertyValueFactory<>("Item_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -112,7 +117,7 @@ public class ItemFormController {
                         item.getQty(),
                         item.getPrice(),
                         item.getDescription(),
-                       item.getDate()
+                        item.getDate()
                 );
 
                 obList.add(tm);
@@ -126,21 +131,36 @@ public class ItemFormController {
 
     @FXML
     void btnBACKOnAction(ActionEvent event) throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/DashboardForm.fxml"));
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/MainForm.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("Dashboard Form");
+        stage.setTitle("Main Form");
         stage.centerOnScreen();
 //        stage.show();
+    }
 
+    private void getCurrentItemId() throws SQLException {
+        String currentId = ItemRepo.getCurrentId();
 
+        String nextItemId = generateNextItemId(currentId);
+        txtItemId.setText(nextItemId);
+    }
+
+    private String generateNextItemId(String currentId) {
+        if (currentId != null) {
+            String[] split = currentId.split("I00");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "I00" + ++idNum;
+        }
+        return "I001";
     }
 
     @FXML
     void btnCLEAROnAction(ActionEvent event) {
         clearFields();
     }
+
     private void clearFields() {
         txtItemId.setText("");
         txtQuantity.setText("");
@@ -155,7 +175,8 @@ public class ItemFormController {
         String itemId = txtItemId.getText();
         try {
             boolean isDeleted = ItemRepo.DELETE(itemId);
-            if(isDeleted) {
+            initialize();
+            if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Item deleted!").show();
             }
         } catch (SQLException e) {
@@ -173,13 +194,12 @@ public class ItemFormController {
         Date date = Date.valueOf(LocalDate.now());
 
         try {
-            ItemRepo.saveItem(itemId,name,qty,price,date,description);
+            ItemRepo.saveItem(itemId, name, qty, price, date, description);
             initialize();
         } catch (SQLException e) {
 //            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-            throw  new RuntimeException(e);
+            throw new RuntimeException(e);
         }
-
     }
 
     @FXML
@@ -191,12 +211,13 @@ public class ItemFormController {
             txtQuantity.setText(String.valueOf(item.getQty()));
             txtItemName.setText(item.getName());
             txtPrice.setText(String.valueOf(item.getPrice()));
-           //txtDate.setText(String.valueOf(item).getDate());
+            //txtDate.setText(String.valueOf(item).getDate());
             txtDescription.setText(item.getDescription());
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Item not found!").show();
         }
     }
+
     @FXML
     void btnUPDATEOnAction(ActionEvent event) {
         String itemId = txtItemId.getText();
@@ -230,4 +251,36 @@ public class ItemFormController {
         txtPrice.setText(colPrice.getCellData(index).toString());
         txtQuantity.setText(colQuantity.getCellData(index).toString());
     }
+
+
+    public void txtItemIdOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.ID, txtItemId);
+    }
+
+    public void txtItemNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.NAME, txtItemName);
+    }
+
+    public void txtQuantityOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.QUANTITY, txtQuantity);
+    }
+
+    public void txtPriceOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtPrice);
+    }
+
+    public void txtDateOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate);
+    }
+
+   /* public boolean isValied() {
+        if (!Regex.setTextColor(TextField.ID, txtItemId)) return false;
+        if (!Regex.setTextColor(TextField.NAME, txtItemName)) return false;
+        if (!Regex.setTextColor(TextField.DATE, txtDate)) return false;
+        if (!Regex.setTextColor(TextField.PRICE, txtPrice)) return false;
+        if (!Regex.setTextColor(TextField.QUANTITY, txtQuantity)) return false;
+
+        return true;
+    }*/
+
 }

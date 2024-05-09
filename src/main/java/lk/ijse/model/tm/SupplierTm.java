@@ -4,16 +4,16 @@ import lombok.*;
 
 import java.sql.Date;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 
 public class SupplierTm {
     private String Supplier_id;
     private String Supplier_name;
     private String Address;
-    private String Contact;
-    private String Quantity;
+    private int Contact;
+    private int Quantity;
     private double Price;
     private String ProductName;
     private Date Date;

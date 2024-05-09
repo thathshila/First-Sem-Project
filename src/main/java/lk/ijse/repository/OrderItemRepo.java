@@ -9,7 +9,7 @@ import java.util.List;
 
 public class OrderItemRepo {
 
-    public static boolean Save(List<OrderItem> odList) throws SQLException {
+    public static boolean save(List<OrderItem> odList) throws SQLException {
         for (OrderItem od : odList){
             boolean isSaved = Save(od);
             if(!isSaved){
@@ -18,8 +18,9 @@ public class OrderItemRepo {
         }
         return true;
     }
+
    private static boolean Save(OrderItem od) throws SQLException {
-       String sql = "INSERT INTO Order_ITEM VALUES(?, ?, ?, ?)";
+       String sql = "INSERT INTO Order_Item VALUES(?, ?, ?, ?)";
 
        PreparedStatement pstm = DbConnection.getInstance().getConnection()
                .prepareStatement(sql);

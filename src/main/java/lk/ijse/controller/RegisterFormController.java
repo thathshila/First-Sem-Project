@@ -8,11 +8,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.User;
 
 import lk.ijse.repository.UserRepo;
+import lk.ijse.util.Regex;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -26,20 +28,7 @@ public class RegisterFormController {
     private Button btnRegisterNow;
 
     @FXML
-    private TableColumn<?, ?> colDate;
-
-    @FXML
-    private TableColumn<?, ?> colUserId;
-
-    @FXML
-    private TableColumn<?, ?> colUserName;
-
-    @FXML
-    private TableColumn<?, ?> colPassword;
-
-    @FXML
     private AnchorPane rootNode;
-
 
     @FXML
     private TextField txtDate;
@@ -51,44 +40,20 @@ public class RegisterFormController {
     private TextField txtUserId;
 
     @FXML
+    private Button Back;
+
+    @FXML
     private TextField txtUserName;
 
     public void initialize() {
         setDate();
-      //  setCellValueFactory();
-     //   loadAllUsers();
     }
+
     private void setDate() {
         LocalDate now = LocalDate.now();
         txtDate.setText(String.valueOf(now));
     }
-  /*  private void setCellValueFactory() {
-        colUserId.setCellValueFactory(new PropertyValueFactory<>("User_id"));
-        colUserName.setCellValueFactory(new PropertyValueFactory<>("User_name"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
-        colPassword.setCellValueFactory(new PropertyValueFactory<>("Password"));
-    }*/
-   /* private void loadAllUsers() {
-        ObservableList<UserTm> obList = FXCollections.observableArrayList();
 
-        try {
-            List<User> userList = UserRepo.getAll();
-            for (User user : userList) {
-                UserTm tm = new UserTm(
-                        user.getUser_id(),
-                        user.getUser_name(),
-                        user.getDate(),
-                        user.getPassword()
-                );
-
-                obList.add(tm);
-            }
-
-            tblRegister.setItems(obList);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
     @FXML
     void btnRegisterNowOnAction(ActionEvent event) throws IOException {
         String User_id = txtUserId.getText();
@@ -96,18 +61,52 @@ public class RegisterFormController {
         Date date = Date.valueOf(txtDate.getText());
         String Password = txtPassword.getText();
         try {
-            UserRepo.RegisterNow(User_id, User_name,date,Password);
+            UserRepo.RegisterNow(User_id, User_name, date, Password);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
         Stage stage = (Stage) rootNode.getScene().getWindow();
 
         stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Dashboard Form");
+        stage.setTitle("Main Form");
         stage.centerOnScreen();
     }
+
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml"));
+        Stage stage = (Stage) rootNode.getScene().getWindow();
+
+        stage.setScene(new Scene(anchorPane));
+        stage.setTitle("Login Form");
+        stage.centerOnScreen();
     }
+
+    public void txtUserIdOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.ID, txtUserId);
+    }
+
+    public void txtUserNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.USERNAME, txtUserName);
+    }
+
+    public void txtDateOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate);
+    }
+
+    public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(lk.ijse.util.TextField.PASSWORD, txtPassword);
+    }
+
+  /*  public boolean isValied() {
+        if (!Regex.setTextColor(TextField.ID, txtUserId)) return false;
+        if (!Regex.setTextColor(TextField.NAME, txtUserName)) return false;
+        if (!Regex.setTextColor(TextField.DATE, txtDate)) return false;
+        if (!Regex.setTextColor(TextField.PASSWORD, txtPassword)) return false;
+
+    }*/
+}
+
 
 

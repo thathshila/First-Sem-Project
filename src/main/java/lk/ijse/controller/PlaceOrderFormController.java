@@ -40,8 +40,6 @@ public class PlaceOrderFormController {
     @FXML
     private Button btnPlaceOrder;
 
-    @FXML
-    private TableColumn<?, ?> colDiscount;
 
     @FXML
     private TableColumn<?, ?> colItemId;
@@ -72,9 +70,6 @@ public class PlaceOrderFormController {
 
     @FXML
     private JFXComboBox<String> combUserId;
-
-    @FXML
-    private JFXComboBox<?> comboPaymentMethod;
 
     @FXML
     private AnchorPane rootNode;
@@ -116,12 +111,11 @@ public class PlaceOrderFormController {
 
     public void initialize() throws SQLException {
         setDate();
-        getCurrentOrderId();
         getCustomerNIC();
         getItemIds();
         getUserId();
-        // getPaymentMethod();
         setCellValueFactory();
+        getCurrentOrderId();
     }
 
     private void setDate() {
@@ -138,21 +132,7 @@ public class PlaceOrderFormController {
         colAction.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
     }
 
-    private void getCurrentOrderId() throws SQLException {
-        String currentId = OrderRepo.getCurrentId();
 
-        String nextOrderId = generateNextOrderId(currentId);
-        txtOrderId.setText(nextOrderId);
-    }
-
-    private String generateNextOrderId(String currentId) {
-        if (currentId != null) {
-            String[] split = currentId.split("O");  //" ", "2"
-            int idNum = Integer.parseInt(split[1]);
-            return "O" + ++idNum;
-        }
-        return "O1";
-    }
 
     private void getCustomerNIC() {
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -197,6 +177,22 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void getCurrentOrderId() throws SQLException {
+        String currentId = OrderRepo.getCurrentId();
+
+        String nextOrderId = generateNextOrderId(currentId);
+        txtOrderId.setText(nextOrderId);
+    }
+
+    private String generateNextOrderId(String currentId) {
+        if (currentId != null) {
+            String[] split = currentId.split("O");
+            int idNum = Integer.parseInt(split[1]);
+            return "0" + ++idNum;
+        }
+        return "01";
     }
 
     @FXML
@@ -262,11 +258,11 @@ public class PlaceOrderFormController {
 
     @FXML
         void btnBackOnAction (ActionEvent event) throws IOException {
-            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/MainForm.fxml"));
             Stage stage = (Stage) rootNode.getScene().getWindow();
 
             stage.setScene(new Scene(anchorPane));
-            stage.setTitle("Dashboard Form");
+            stage.setTitle("Main Form");
             stage.centerOnScreen();
         }
 
@@ -307,7 +303,7 @@ public class PlaceOrderFormController {
                 txtCustomerId.setText(customer.getCustomer_id());
                 txtCustomerName.setText(customer.getCustomer_name());
                 txtAddress.setText(customer.getAddress());
-                txtContact.setText(customer.getContact());
+                txtContact.setText(String.valueOf(customer.getContact()));
 
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -320,13 +316,12 @@ public class PlaceOrderFormController {
             Date date = Date.valueOf(LocalDate.now());
             double Price = Double.parseDouble(txtPrice.getText());
             String cusId = txtCustomerId.getText();
-            String payId = (String) comboPaymentMethod.getValue();
             String userId = combUserId.getValue();
 
 
 
 
-            var order = new Order(orderId,date,Price,cusId,payId,userId);
+            var order = new Order(orderId,date,Price,cusId,userId);
 
             List<OrderItem>  odList = new ArrayList<>();
 

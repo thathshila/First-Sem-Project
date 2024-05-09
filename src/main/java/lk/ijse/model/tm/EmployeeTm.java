@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmployeeTm {
     private String Employee_id;
     private String Employee_name;
     private String Address;
-    private String Contact;
+    private int Contact;
     private Date Date;
     private double Salary;
     private String WorkingHours;

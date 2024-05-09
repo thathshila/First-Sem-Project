@@ -1,45 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpmain2" prefHeight="767.0" prefWidth="1341.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
+<AnchorPane fx:id="anpmain2" prefHeight="780.0" prefWidth="1457.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <children>
-      <AnchorPane fx:id="anpmain3" opacity="0.55" prefHeight="780.0" prefWidth="304.0" style="-fx-background-color: pink;">
+      <AnchorPane fx:id="anpmain1" layoutX="315.0" layoutY="43.0" prefHeight="694.0" prefWidth="1131.0" style="-fx-background-color: white;" />
+      <AnchorPane fx:id="anpmain3" opacity="0.55" prefHeight="780.0" prefWidth="304.0" style="-fx-background-color: black;">
          <children>
-            <JFXButton fx:id="btnCustomer" layoutX="30.0" layoutY="38.0" onAction="#btnCustomerOnAction" opacity="0.71" prefHeight="56.0" prefWidth="213.0" style="-fx-background-color: BLUE;" text="CUSTOMER">
+            <Button fx:id="btnItem" layoutX="57.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="76.0" prefWidth="191.0" style="-fx-background-color: white;" text="ITEMS">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
-            </JFXButton>
-            <JFXButton fx:id="btnEmployee" layoutX="30.0" layoutY="129.0" onAction="#btnEmployeeOnAction" opacity="0.71" prefHeight="56.0" prefWidth="213.0" style="-fx-background-color: BLUE;" text="EMPLOYEE">
+            </Button>
+            <Button fx:id="btnExit" layoutX="56.0" layoutY="670.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="76.0" prefWidth="191.0" style="-fx-background-color: white;" text="EXIT">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
-            </JFXButton>
-            <JFXButton fx:id="btnDashboard" layoutX="30.0" layoutY="218.0" onAction="#btnDashboardOnAction" opacity="0.71" prefHeight="56.0" prefWidth="213.0" style="-fx-background-color: BLUE;" text="DASHBOARD">
+            </Button>
+            <Button fx:id="btnSupplier" layoutX="52.0" layoutY="452.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="76.0" prefWidth="201.0" style="-fx-background-color: white;" text="SUPPLIERS">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
-            </JFXButton>
-            <JFXButton fx:id="btnPlaceOrder" layoutX="30.0" layoutY="324.0" onAction="#btnPlaceOrderOnAction" opacity="0.71" prefHeight="56.0" prefWidth="213.0" style="-fx-background-color: BLUE;" text="PLACE ORDER">
+            </Button>
+            <Button fx:id="btnCustomer" layoutX="67.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="69.0" prefWidth="172.0" style="-fx-background-color: white;" text="CUSTOMER">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
-            </JFXButton>
-            <JFXButton fx:id="btnOrder" layoutX="30.0" layoutY="424.0" onAction="#btnOrderOnAction" opacity="0.71" prefHeight="56.0" prefWidth="213.0" style="-fx-background-color: BLUE;" text=" ORDER">
+            </Button>
+            <Button fx:id="btnPlaceOrder" layoutX="52.0" layoutY="558.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="76.0" prefWidth="201.0" style="-fx-background-color: white;" text="PLACE ORDER">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
-            </JFXButton>
-            <JFXButton fx:id="btnSupplier" layoutX="30.0" layoutY="539.0" onAction="#btnSupplierOnAction" opacity="0.71" prefHeight="56.0" prefWidth="213.0" style="-fx-background-color: BLUE;" text="SUPPLIERS">
+            </Button>
+            <Button fx:id="btnEmployee" layoutX="67.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="76.0" prefWidth="172.0" style="-fx-background-color: white;" text="EMPLOYEE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
-            </JFXButton>
+            </Button>
+            <Button fx:id="btnDashboard" layoutX="60.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="76.0" prefWidth="184.0" style="-fx-background-color: white;" text="DASHBOARD">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anpmain1" layoutX="321.0" layoutY="60.0" prefHeight="600.0" prefWidth="1000.0" />
    </children>
 </AnchorPane>
