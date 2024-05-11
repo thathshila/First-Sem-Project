@@ -13,29 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepo {
-   /* public static List<User> getAll() throws SQLException {
-        String sql = "SELECT * FROM User";
-
-        PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                .prepareStatement(sql);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        List<User> userList = new ArrayList<>();
-
-        while (resultSet.next()) {
-            String User_id = resultSet.getString(1);
-            String User_name = resultSet.getString(2);
-            Date date = Date.valueOf(resultSet.getString(3));
-            String Password = resultSet.getString(4);
-
-            User user = new User(User_id, User_name, date,Password);
-
-            userList.add(user);
-        }
-        return userList;
-    }*/
-
 
     public static void RegisterNow(String userId, String userName, Date date, String password) throws SQLException {
         String sql = "INSERT INTO User VALUES (?, ? ,?, ? )";
@@ -69,7 +46,5 @@ public class UserRepo {
         }
         return idList;
     }
-
-
 }
 

@@ -1,12 +1,14 @@
 package lk.ijse.repository;
 
+import javafx.scene.control.Alert;
 import lk.ijse.db.DbConnection;
-import lk.ijse.model.Customer;
 import lk.ijse.model.Supplier;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static lk.ijse.util.TextField.NIC;
 
 public class SupplierRepo {
     public static List<Supplier> getAll() throws SQLException {
@@ -46,21 +48,29 @@ public class SupplierRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static boolean SAVE(Supplier supplier) throws SQLException {
+    public static boolean SAVE(String supplier_id, String supplier_name, String address, int contact, int quantity, double price, String product, Date date, String nic) throws SQLException {
         String sql = "INSERT INTO Supplier VALUES(?, ?, ?, ?,?,?,?,?,?)";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setObject(1, supplier.getSupplier_id());
-        pstm.setObject(2, supplier.getSupplier_name());
-        pstm.setObject(3, supplier.getAddress());
-        pstm.setObject(4, supplier.getContact());
-        pstm.setObject(5, supplier.getQuantity());
-        pstm.setObject(6, supplier.getPrice());
-        pstm.setObject(7, supplier.getProductName());
-        pstm.setObject(8, supplier.getDate());
-        pstm.setObject(9, supplier.getNIC());
-        return pstm.executeUpdate() > 0;
+
+        pstm.setObject(1, supplier_id);
+        pstm.setObject(2, supplier_name);
+        pstm.setObject(3, address);
+        pstm.setObject(4, contact);
+        pstm.setObject(5, quantity);
+        pstm.setObject(6, price);
+        pstm.setObject(7, product);
+        pstm.setObject(8, date);
+        pstm.setObject(9, nic);
+
+        int effectedRows = pstm.executeUpdate();
+        if (effectedRows > 0) {
+            new Alert(Alert.AlertType.CONFIRMATION, "Employee save successfully!!!").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Can't save this employee").show();
+        }
+        return false;
     }
 
     public static Supplier SEARCH(String id) throws SQLException {

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ItemRepo {
 
-    public static void saveItem(String itemId, String name, int qty, double price, Date date, String description) throws SQLException {
+    public static boolean saveItem(String itemId, String name, int qty, double price, String description, Date date) throws SQLException {
         String sql = "INSERT INTO Items VALUES (?, ? ,? ,? ,? ,?)";
         PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
         pstm.setObject(1, itemId);
@@ -27,7 +27,9 @@ public class ItemRepo {
         } else {
             new Alert(Alert.AlertType.ERROR, "Can't save this item").show();
         }
+        return  false;
     }
+
 
     public static Item searchItem(String id) throws SQLException {
         String sql = "SELECT * FROM Items WHERE Item_id = ?";

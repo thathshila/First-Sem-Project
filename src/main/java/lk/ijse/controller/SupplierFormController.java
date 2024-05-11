@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.Supplier;
 import lk.ijse.model.tm.SupplierTm;
+import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.SupplierRepo;
 import lk.ijse.util.Regex;
 
@@ -223,18 +224,22 @@ public class SupplierFormController {
         Date Date = java.sql.Date.valueOf(txtDate.getText());
         String Nic = txtNIC.getText();
 
-        Supplier supplier = new Supplier(Supplier_id, Supplier_name, Address, Contact, Quantity, Price, Product, Date, Nic);
-
         try {
-            boolean isSaved = SupplierRepo.SAVE(supplier);
-            initialize();
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "supplier saved!").show();
-                clearFields();
+            if (isValied()) {
+                boolean isSave = SupplierRepo.SAVE(Supplier_id, Supplier_name, Address, Contact, Quantity, Price, Product, Date, Nic);
+                if (isSave) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Employee saved..", ButtonType.OK).show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Employee not saved..", ButtonType.OK).show();
+                }
+            }else {
+                return;
             }
+
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        loadAllSuppliers();
     }
 
     @FXML
@@ -334,17 +339,17 @@ public class SupplierFormController {
         Regex.setTextColor(lk.ijse.util.TextField.ID, txtSupplierId);
     }
 
- /*   public boolean isValied() {
-        if (!Regex.setTextColor(TextField.ID, txtSupplierId)) return false;
-        if (!Regex.setTextColor(TextField.NAME, txtSupplierName)) return false;
-        if (!Regex.setTextColor(TextField.ADDRESS, txtAddress)) return false;
-        if (!Regex.setTextColor(TextField.DATE, txtDate)) return false;
-        if (!Regex.setTextColor(TextField.CONTACT, txtContact)) return false;
-        if (!Regex.setTextColor(TextField.NIC, txtNIC)) return false;
-        if (!Regex.setTextColor(TextField.NAME, txtProductName)) return false;
-        if (!Regex.setTextColor(TextField.PRICE, txtUnitPrice)) return false;
+    public boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtSupplierId)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtSupplierName)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtAddress)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.CONTACT, txtContact)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.NIC, txtNIC)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtProductName)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtUnitPrice)) return false;
 
         return true;
-    }*/
+    }
 
 }

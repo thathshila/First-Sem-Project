@@ -8,6 +8,8 @@ import lk.ijse.model.OrderItem;
 import lk.ijse.model.PlaceOrder;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -61,6 +63,32 @@ public class PlaceOrderRepo {
             connection.setAutoCommit(true);
         }
         return false;
+    }
+
+    public static String calculateNetTotal(String orderId) {
+        double netTotal = 0.0;
+
+        String sql = "SELECT SUM(b.Price * od.qty) " +
+                "FROM Items i " +
+                "JOIN Order_Item oi ON i.Item_id = oi.Item_id " +
+                "WHERE oi.orderId = ?";
+
+
+        try (PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql)) {
+            statement.setString(1, orderId);
+
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+
+                while (resultSet.next()) {
+                    double c = resultSet.getDouble(1);
+                    netTotal=netTotal+c;
+                }
+                return String.valueOf((netTotal));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

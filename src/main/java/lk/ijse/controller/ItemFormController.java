@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.Item;
 import lk.ijse.model.tm.ItemTm;
+import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.ItemRepo;
 import lk.ijse.util.Regex;
 
@@ -194,13 +195,23 @@ public class ItemFormController {
         Date date = Date.valueOf(LocalDate.now());
 
         try {
-            ItemRepo.saveItem(itemId, name, qty, price, date, description);
-            initialize();
+            if (isValied()) {
+                boolean isSave = ItemRepo.saveItem(itemId, name, qty, price, description, date);
+                if (isSave) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Item saved..", ButtonType.OK).show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Item not saved..", ButtonType.OK).show();
+                }
+            }else {
+                return;
+            }
+
         } catch (SQLException e) {
-//            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        loadAllItems();
     }
+
 
     @FXML
     void btnSEARCHOnAction(ActionEvent event) throws SQLException {
@@ -273,14 +284,14 @@ public class ItemFormController {
         Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate);
     }
 
-   /* public boolean isValied() {
-        if (!Regex.setTextColor(TextField.ID, txtItemId)) return false;
-        if (!Regex.setTextColor(TextField.NAME, txtItemName)) return false;
-        if (!Regex.setTextColor(TextField.DATE, txtDate)) return false;
-        if (!Regex.setTextColor(TextField.PRICE, txtPrice)) return false;
-        if (!Regex.setTextColor(TextField.QUANTITY, txtQuantity)) return false;
+    public boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtItemId)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtItemName)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtPrice)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.QUANTITY, txtQuantity)) return false;
 
         return true;
-    }*/
+    }
 
 }

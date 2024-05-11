@@ -99,13 +99,14 @@ public class RegisterFormController {
         Regex.setTextColor(lk.ijse.util.TextField.PASSWORD, txtPassword);
     }
 
-  /*  public boolean isValied() {
-        if (!Regex.setTextColor(TextField.ID, txtUserId)) return false;
-        if (!Regex.setTextColor(TextField.NAME, txtUserName)) return false;
-        if (!Regex.setTextColor(TextField.DATE, txtDate)) return false;
-        if (!Regex.setTextColor(TextField.PASSWORD, txtPassword)) return false;
+    public boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtUserId)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtUserName)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.PASSWORD, txtPassword)) return false;
 
-    }*/
+        return true;
+    }
 }
 
 

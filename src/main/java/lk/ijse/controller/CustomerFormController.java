@@ -12,17 +12,25 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.db.DbConnection;
 import lk.ijse.model.Customer;
 import lk.ijse.model.tm.CustomerTm;
 import lk.ijse.repository.CustomerRepo;
+import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.util.Regex;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
+import java.util.Map;
 
 
 public class CustomerFormController {
@@ -179,12 +187,21 @@ public class CustomerFormController {
         Date date = Date.valueOf(LocalDate.now());
 
         try {
-            CustomerRepo.SAVE(Customer_id, Customer_name, Contact, Address, Nic, date);
-            initialize();
-            clearFields();
+            if (isValied()) {
+                boolean isSave = CustomerRepo.SAVE(Customer_id, Customer_name, Contact, Address,Nic, date);
+                if (isSave) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Customer saved..", ButtonType.OK).show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Customer not saved..", ButtonType.OK).show();
+                }
+            }else {
+                return;
+            }
+
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        loadAllCustomers();
     }
 
     @FXML
@@ -281,16 +298,27 @@ public class CustomerFormController {
         Regex.setTextColor(lk.ijse.util.TextField.NIC, txtNICNumber);
     }
 
-   /* public boolean isValied() {
-        if (!Regex.setTextColor(TextField.ID, txtCustomerId)) return false;
-        if (!Regex.setTextColor(TextField.NAME, txtCustomerName)) return false;
-        if (!Regex.setTextColor(TextField.ADDRESS, txtAddress)) return false;
-        if (!Regex.setTextColor(TextField.DATE, txtDate)) return false;
-        if (!Regex.setTextColor(TextField.CONTACT, txtContact)) return false;
-        if (!Regex.setTextColor(TextField.NIC, txtNICNumber)) return false;
+    public boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtCustomerId)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtCustomerName)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtAddress)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.CONTACT, txtContact)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.NIC, txtNICNumber)) return false;
 
         return true;
-    }*/
+    }
+    public void btnBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/customer.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+        Map<String,Object> data = new HashMap<>();
+       // data.put("CustomerID",txtCustomerId.getText());
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint,false);
+    }
 }
 
 

@@ -83,7 +83,7 @@ public class CustomerRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static void SAVE(String customerId, String customerName, int contact, String address, String nic, Date date) throws SQLException {
+    public static boolean SAVE(String customerId, String customerName, int contact, String address, String nic, Date date) throws SQLException {
         String sql = "INSERT INTO Customer VALUES(?, ?, ?, ?,?,?)";
 
         Connection connection = DbConnection.getInstance().getConnection();
@@ -101,6 +101,7 @@ public class CustomerRepo {
         } else {
             new Alert(Alert.AlertType.ERROR, "Can't save this customer").show();
         }
+        return false;
     }
 
     public static List<String> getNIC() throws SQLException {

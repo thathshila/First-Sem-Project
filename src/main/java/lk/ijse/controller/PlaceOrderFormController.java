@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.db.DbConnection;
 import lk.ijse.model.*;
 import lk.ijse.model.tm.CartTm;
 
@@ -20,11 +21,13 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import lk.ijse.repository.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class PlaceOrderFormController {
 
@@ -190,9 +193,9 @@ public class PlaceOrderFormController {
         if (currentId != null) {
             String[] split = currentId.split("O");
             int idNum = Integer.parseInt(split[1]);
-            return "0" + ++idNum;
+            return "O" + ++idNum;
         }
-        return "01";
+        return "O1";
     }
 
     @FXML
@@ -342,6 +345,12 @@ public class PlaceOrderFormController {
                 boolean isPlaced = PlaceOrderRepo.placeOrder(po);
                 if(isPlaced) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Order Placed!").show();
+                    obList.clear();
+                    tblPlaceOrder.setItems(obList);
+                    calculateNetTotal();
+                    getCurrentOrderId();
+                    generateBill(orderId);
+
                 }else {
                     new Alert(Alert.AlertType.WARNING, "Order Placed Unsuccessfully!").show();
                 }
@@ -349,4 +358,27 @@ public class PlaceOrderFormController {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
+
+    private void generateBill(String orderId) {
+        try {
+            String netTotal = calculateNetTotal(orderId);
+
+            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/PlaceOrder.jrxml");
+            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+                Map<String, Object> parameters = new HashMap<>();
+                parameters.put("orderId", orderId);
+                parameters.put("total", netTotal);
+
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DbConnection.getInstance().getConnection());
+                JasperViewer.viewReport(jasperPrint, false);
+
+         } catch (JRException | SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+    private String calculateNetTotal(String orderId) {
+        return PlaceOrderRepo.calculateNetTotal(orderId);
+    }
+}

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -58,7 +61,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TableView fx:id="tblCustomer" layoutX="76.0" layoutY="443.0" onMouseClicked="#tblCustomerOnMouseClicked" prefHeight="224.0" prefWidth="771.0" style="-fx-background-color: lightgreen;">
+      <TableView fx:id="tblCustomer" layoutX="76.0" layoutY="443.0" onMouseClicked="#tblCustomerOnMouseClicked" prefHeight="224.0" prefWidth="771.0">
         <columns>
           <TableColumn fx:id="colCustomerId" prefWidth="111.0" text="CustomerId" />
           <TableColumn fx:id="colName" prefWidth="127.0" text="Name" />
@@ -69,35 +72,20 @@
             <TableColumn fx:id="colDate" prefWidth="171.0" text="Date" />
         </columns>
       </TableView>
-      <Button fx:id="btnSAVE" layoutX="969.0" layoutY="176.0" mnemonicParsing="false" onAction="#btnSAVEOnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="SAVE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnDELETE" layoutX="969.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="DELETE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnUPDATE" layoutX="972.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="UPDATE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnCLEAR" layoutX="972.0" layoutY="440.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" prefHeight="52.0" prefWidth="125.0" style="-fx-background-color: green;" text="CLEAR">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnBACK" layoutX="972.0" layoutY="612.0" mnemonicParsing="false" onAction="#btnBACKOnAction" prefHeight="52.0" prefWidth="133.0" style="-fx-background-color: green;" text="BACK">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnSEARCH" layoutX="969.0" layoutY="529.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="52.0" prefWidth="133.0" style="-fx-background-color: green;" text="SEARCH">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
+      <Button fx:id="btnbill" layoutX="1016.0" layoutY="583.0" mnemonicParsing="false" onAction="#btnBillOnAction" text="bill" />
+      <JFXButton fx:id="btnSAVE" layoutX="981.0" layoutY="161.0" onAction="#btnSAVEOnAction" prefHeight="52.0" prefWidth="115.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="Save">
+         <styleClass>
+            <String fx:value="logout1" />
+            <String fx:value="logout" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Button fx:id="btnDELETE" layoutX="1019.0" layoutY="230.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="52.0" prefWidth="66.0" style="-fx-border-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="Delete" />
+      <Button fx:id="btnUPDATE" layoutX="1002.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" text="Update" />
+      <Button fx:id="btnCLEAR" layoutX="989.0" layoutY="531.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" text="clear" />
+      <Button fx:id="btnSEARCH" layoutX="988.0" layoutY="391.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" text="search" />
+      <Button fx:id="btnBACK" layoutX="1014.0" layoutY="474.0" mnemonicParsing="false" onAction="#btnBACKOnAction" text="back" />
    </children>
 </AnchorPane>

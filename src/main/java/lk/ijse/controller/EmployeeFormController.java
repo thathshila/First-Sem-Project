@@ -13,16 +13,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.model.Customer;
 import lk.ijse.model.Employee;
-import lk.ijse.model.User;
 import lk.ijse.model.tm.EmployeeTm;
-import lk.ijse.repository.CustomerRepo;
 import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.UserRepo;
 import lk.ijse.util.Regex;
-//import lk.ijse.util.TextField;
-
 import java.lang.String;
 import java.io.IOException;
 import java.sql.Date;

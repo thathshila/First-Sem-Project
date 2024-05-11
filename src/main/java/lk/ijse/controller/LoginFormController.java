@@ -115,4 +115,11 @@ public class LoginFormController {
     public void txtPasswordOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(lk.ijse.util.TextField.PASSWORD,txtPassword);
     }
+
+    public boolean isValied() {
+        if (!Regex.setTextColor(lk.ijse.util.TextField.USERNAME, txtUsername)) return false;
+        if (!Regex.setTextColor(lk.ijse.util.TextField.PASSWORD, txtPassword)) return false;
+
+        return true;
+    }
 }
