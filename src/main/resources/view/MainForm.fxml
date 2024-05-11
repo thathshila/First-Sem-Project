@@ -1,49 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpmain2" prefHeight="780.0" prefWidth="1457.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
+<AnchorPane fx:id="anpmain2" prefHeight="1012.0" prefWidth="1960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <children>
-      <AnchorPane fx:id="anpmain1" layoutX="315.0" layoutY="43.0" prefHeight="694.0" prefWidth="1131.0" style="-fx-background-color: white;" />
-      <AnchorPane fx:id="anpmain3" opacity="0.55" prefHeight="780.0" prefWidth="304.0" style="-fx-background-color: black;">
+      <ImageView fitHeight="1012.0" fitWidth="1960.0">
+         <image>
+            <Image url="@../asserts/new.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anpmain1" layoutX="410.0" layoutY="73.0" prefHeight="865.0" prefWidth="1350.0" style="-fx-background-color: white;" />
+      <AnchorPane fx:id="anpmain3" layoutY="-7.0" opacity="0.55" prefHeight="1019.0" prefWidth="344.0">
          <children>
-            <Button fx:id="btnItem" layoutX="57.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="76.0" prefWidth="191.0" style="-fx-background-color: white;" text="ITEMS">
+            <JFXButton fx:id="btnCustomer" layoutX="168.0" layoutY="171.0" onAction="#btnCustomerOnAction" prefHeight="74.0" prefWidth="139.0" text="CUSTOMER">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </Button>
-            <Button fx:id="btnExit" layoutX="56.0" layoutY="670.0" mnemonicParsing="false" onAction="#btnExitOnAction" prefHeight="76.0" prefWidth="191.0" style="-fx-background-color: white;" text="EXIT">
+            </JFXButton>
+            <JFXButton fx:id="btnEmployee" layoutX="162.0" layoutY="301.0" onAction="#btnEmployeeOnAction" prefHeight="74.0" prefWidth="139.0" text="EMPLOYEE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </Button>
-            <Button fx:id="btnSupplier" layoutX="52.0" layoutY="452.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="76.0" prefWidth="201.0" style="-fx-background-color: white;" text="SUPPLIERS">
+            </JFXButton>
+            <JFXButton fx:id="btnItem" layoutX="156.0" layoutY="447.0" onAction="#btnItemOnAction" prefHeight="74.0" prefWidth="152.0" text="ITEMS">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font size="15.0" />
                </font>
-            </Button>
-            <Button fx:id="btnCustomer" layoutX="67.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="69.0" prefWidth="172.0" style="-fx-background-color: white;" text="CUSTOMER">
+            </JFXButton>
+            <JFXButton fx:id="btnSupplier" layoutX="162.0" layoutY="576.0" onAction="#btnSupplierOnAction" prefHeight="74.0" prefWidth="139.0" text="SUPPLIERS">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </Button>
-            <Button fx:id="btnPlaceOrder" layoutX="52.0" layoutY="558.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="76.0" prefWidth="201.0" style="-fx-background-color: white;" text="PLACE ORDER">
+            </JFXButton>
+            <JFXButton fx:id="btnPlaceOrder" layoutX="163.0" layoutY="722.0" onAction="#btnPlaceOrderOnAction" prefHeight="74.0" prefWidth="139.0" text="PLACE ORDER">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </Button>
-            <Button fx:id="btnEmployee" layoutX="67.0" layoutY="132.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="76.0" prefWidth="172.0" style="-fx-background-color: white;" text="EMPLOYEE">
+            </JFXButton>
+            <JFXButton fx:id="btnExit" layoutX="162.0" layoutY="858.0" onAction="#btnExitOnAction" prefHeight="74.0" prefWidth="139.0" text="Log Out">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </Button>
-            <Button fx:id="btnDashboard" layoutX="60.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="76.0" prefWidth="184.0" style="-fx-background-color: white;" text="DASHBOARD">
+            </JFXButton>
+            <JFXButton fx:id="btnDashboard" layoutX="168.0" layoutY="56.0" onAction="#btnDashboardOnAction" prefHeight="74.0" prefWidth="139.0" text="DASHBOARD">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </Button>
+            </JFXButton>
+            <ImageView layoutX="46.0" layoutY="62.0">
+               <image>
+                  <Image url="@../asserts/icons8-dashboard-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="71.0" layoutX="55.0" layoutY="182.0">
+               <image>
+                  <Image url="@../asserts/icons8-customer-64%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="64.0" layoutX="50.0" layoutY="310.0">
+               <image>
+                  <Image url="@../asserts/icons8-employee-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="71.0" layoutX="52.0" layoutY="452.0">
+               <image>
+                  <Image url="@../asserts/icons8-potted-plant-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="64.0" layoutX="59.0" layoutY="581.0">
+               <image>
+                  <Image url="@../asserts/icons8-supplier-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="57.0" fitWidth="64.0" layoutX="56.0" layoutY="731.0">
+               <image>
+                  <Image url="@../asserts/icons8-purchase-order-64.png" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="50.0" layoutY="863.0">
+               <image>
+                  <Image url="@../asserts/icons8-log-out-64.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

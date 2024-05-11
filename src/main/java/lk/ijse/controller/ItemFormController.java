@@ -198,9 +198,9 @@ public class ItemFormController {
             if (isValied()) {
                 boolean isSave = ItemRepo.saveItem(itemId, name, qty, price, description, date);
                 if (isSave) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Item saved..", ButtonType.OK).show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Item Save Successfully!", ButtonType.OK).show();
                 } else {
-                    new Alert(Alert.AlertType.ERROR, "Item not saved..", ButtonType.OK).show();
+                    new Alert(Alert.AlertType.ERROR, "Item Save Unsuccessfully!", ButtonType.OK).show();
                 }
             }else {
                 return;

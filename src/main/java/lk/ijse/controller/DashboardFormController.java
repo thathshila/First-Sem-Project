@@ -21,6 +21,7 @@ public class DashboardFormController {
 
     public AnchorPane rootNode;
 
+
     public Label lblCustomerCount;
 
     private int customerCount;

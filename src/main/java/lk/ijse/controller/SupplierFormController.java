@@ -228,9 +228,9 @@ public class SupplierFormController {
             if (isValied()) {
                 boolean isSave = SupplierRepo.SAVE(Supplier_id, Supplier_name, Address, Contact, Quantity, Price, Product, Date, Nic);
                 if (isSave) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Employee saved..", ButtonType.OK).show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Employee Save Successfully!", ButtonType.OK).show();
                 } else {
-                    new Alert(Alert.AlertType.ERROR, "Employee not saved..", ButtonType.OK).show();
+                    new Alert(Alert.AlertType.ERROR, "Employee Save Unsuccessfully!", ButtonType.OK).show();
                 }
             }else {
                 return;
@@ -351,5 +351,4 @@ public class SupplierFormController {
 
         return true;
     }
-
 }

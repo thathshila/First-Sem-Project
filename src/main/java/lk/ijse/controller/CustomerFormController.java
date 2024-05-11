@@ -16,7 +16,6 @@ import lk.ijse.db.DbConnection;
 import lk.ijse.model.Customer;
 import lk.ijse.model.tm.CustomerTm;
 import lk.ijse.repository.CustomerRepo;
-import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -190,14 +189,13 @@ public class CustomerFormController {
             if (isValied()) {
                 boolean isSave = CustomerRepo.SAVE(Customer_id, Customer_name, Contact, Address,Nic, date);
                 if (isSave) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Customer saved..", ButtonType.OK).show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Customer Save Successfully!", ButtonType.OK).show();
                 } else {
-                    new Alert(Alert.AlertType.ERROR, "Customer not saved..", ButtonType.OK).show();
+                    new Alert(Alert.AlertType.ERROR, "Customer Save Unsuccessfully ", ButtonType.OK).show();
                 }
             }else {
                 return;
             }
-
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
@@ -218,7 +216,7 @@ public class CustomerFormController {
             LocalDate now = LocalDate.now();
             txtDate.setText(String.valueOf(now));
         } else {
-            new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
+            new Alert(Alert.AlertType.INFORMATION, "Customer not found!").show();
         }
     }
 
@@ -237,7 +235,7 @@ public class CustomerFormController {
             boolean isUpdated = CustomerRepo.UPDATE(customer);
             if (isUpdated) {
                 initialize();
-                new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer updated!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -260,6 +258,7 @@ public class CustomerFormController {
         }
         return "C001";
     }
+
 
     public void tblCustomerOnMouseClicked(MouseEvent mouseEvent) {
         Integer index = tblCustomer.getSelectionModel().getSelectedIndex();
@@ -308,6 +307,7 @@ public class CustomerFormController {
 
         return true;
     }
+
     public void btnBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
         JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/customer.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
@@ -319,6 +319,24 @@ public class CustomerFormController {
                 JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
         JasperViewer.viewReport(jasperPrint,false);
     }
+
+
+    public void txtCustomerNameOnAction(ActionEvent actionEvent) {
+        txtContact.requestFocus();
+    }
+
+    public void txtContactOnAction(ActionEvent actionEvent){
+        txtNICNumber.requestFocus();
+    }
+
+    public  void txtNICNumberOnAction(ActionEvent actionEvent){
+        txtAddress.requestFocus();
+    }
+
+   public void txtAddressOnAction(ActionEvent actionEvent) throws IOException{
+        btnSAVEOnAction(actionEvent);
+
+   }
 }
 
 
