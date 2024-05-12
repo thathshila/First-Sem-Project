@@ -24,18 +24,19 @@ public class OrderRepo {
 
     }
 
-    public static String getCurrentId() throws SQLException {
-        String sql = "SELECT Order_id FROM Orders ORDER BY Order_id DESC LIMIT 1";
+public static String getCurrentId() throws SQLException {
+    String sql = "SELECT Order_id FROM Orders ORDER BY Order_id DESC LIMIT 1";
 
-        PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                .prepareStatement(sql);
+    PreparedStatement pstm = DbConnection.getInstance().getConnection()
+            .prepareStatement(sql);
 
-        ResultSet resultSet = pstm.executeQuery();
-        if(resultSet.next()) {
-            String orderId = resultSet.getString(1);
-            return orderId;
-        }
-        return null;
+    ResultSet resultSet = pstm.executeQuery();
+    if(resultSet.next()) {
+        String Order_id = resultSet.getString(1);
+        return Order_id;
     }
+    return null;
 }
+}
+
 

@@ -82,7 +82,7 @@ public class PlaceOrderRepo {
 
                 while (resultSet.next()) {
                     double c = resultSet.getDouble(1);
-                    netTotal=netTotal+c;
+                    netTotal = netTotal + c;
                 }
                 return String.valueOf((netTotal));
             }
@@ -91,5 +91,7 @@ public class PlaceOrderRepo {
         }
     }
 }
+
+
 
 

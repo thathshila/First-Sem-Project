@@ -92,7 +92,7 @@ public class EmployeeRepo {
             Date date = resultSet.getDate(5);
             double Salary = Double.parseDouble(resultSet.getString(6));
             String Working_hours = resultSet.getString(7);
-            ObservableList(String) Attendance = resultSet.getString(8);
+            String Attendance = resultSet.getString(8);
             String Position = resultSet.getString(9);
             String User_id = resultSet.getString(10);
 

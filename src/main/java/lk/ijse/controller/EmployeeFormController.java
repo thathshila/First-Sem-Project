@@ -266,7 +266,7 @@ public class EmployeeFormController {
             txtWorkHours.setText(employee.getWorkingHours());
            choiceAttendance.setValue(employee.getAttendance());
             txtPosition.setText(employee.getPosition());
-            // comUserId.setItems((ObservableList<String>) employee.getUserId());
+            comUserId.setValue(employee.getUserId());
 
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Employee not found!").show();

@@ -19,7 +19,7 @@ public class Employee {
     private Date Date;
     private double Salary;
     private String WorkingHours;
-    private ObservableList Attendance;
+    private String Attendance;
     private String Position;
     private String userId;
 }

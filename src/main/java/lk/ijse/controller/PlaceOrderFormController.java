@@ -121,6 +121,27 @@ public class PlaceOrderFormController {
         getCurrentOrderId();
     }
 
+    private void getCurrentOrderId() {
+        try {
+            String currentId = OrderRepo.getCurrentId();
+
+            String nextOrderId = generateNextOrderId(currentId);
+            txtOrderId.setText(nextOrderId);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String generateNextOrderId(String currentId) {
+        if(currentId != null) {
+            String[] split = currentId.split("O");  //" ", "2"
+            int idNum = Integer.parseInt(split[1]);
+            return "O" + ++idNum;
+        }
+        return "O1";
+    }
+
     private void setDate() {
         LocalDate now = LocalDate.now();
         txtDate.setText(String.valueOf(now));
@@ -182,21 +203,7 @@ public class PlaceOrderFormController {
         }
     }
 
-    private void getCurrentOrderId() throws SQLException {
-        String currentId = OrderRepo.getCurrentId();
 
-        String nextOrderId = generateNextOrderId(currentId);
-        txtOrderId.setText(nextOrderId);
-    }
-
-    private String generateNextOrderId(String currentId) {
-        if (currentId != null) {
-            String[] split = currentId.split("O");
-            int idNum = Integer.parseInt(split[1]);
-            return "O" + ++idNum;
-        }
-        return "O1";
-    }
 
     @FXML
     void btnADDOnAction(ActionEvent event) {
