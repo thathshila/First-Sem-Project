@@ -73,12 +73,12 @@ public class SupplierRepo {
         return false;
     }
 
-    public static Supplier SEARCH(String id) throws SQLException {
-        String sql = "SELECT * FROM Supplier WHERE Supplier_id = ?";
+    public static Supplier SEARCH(String contact) throws SQLException {
+        String sql = "SELECT * FROM Supplier WHERE Contact = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setObject(1, id);
+        pstm.setObject(1, contact);
 
         ResultSet resultSet = pstm.executeQuery();
         if (resultSet.next()) {

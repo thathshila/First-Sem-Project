@@ -31,6 +31,7 @@ public class Regex {
                 break;
             case QUANTITY:
                 filed = "^\\d+$";
+                break;
             case PASSWORD:
                 filed = "^\\D*\\d\\D*\\d\\D*\\d\\D*$";
                 break;
@@ -62,22 +63,23 @@ public class Regex {
 
         public static boolean setTextColor(TextField location, javafx.scene.control.TextField textField){
             if (Regex.isTextFieldValid(location, textField.getText())){
-                textField.setStyle(" -fx-border-color: Green");
+
+                textField.setStyle(" -fx-text-box-border: #34d734;\n" +
+                        "    -fx-focus-color: #12dc12;\n" +
+                        "    -fx-faint-focus-color: rgba(246,68,68,0);;");
+
                 return true;
             }else {
-                textField.setStyle(" -fx-border-color: Red");
+                textField.setStyle(" -fx-text-box-border: #f10000;\n" +
+                        "    -fx-focus-color: #ff0000;\n" +
+                        "    -fx-faint-focus-color: rgba(246,68,68,0);;");
                 return false;
             }
         }
     }
 
-     /*
-                           textField.setStyle(" -fx-text-box-border: #34d734;\n" +
-                                   "    -fx-focus-color: #12dc12;\n" +
-                                   "    -fx-faint-focus-color: rgba(246,68,68,0);;");
 
-                                    return true;
+ /*textField.setStyle(" -fx-border-color: Green");
+                return true;
                         }else {
-                        textField.setStyle(" -fx-text-box-border: #f10000;\n" +
-                                                   "    -fx-focus-color: #ff0000;\n" +
-                                                   "    -fx-faint-focus-color: rgba(246,68,68,0);;");*/
+                        textField.setStyle(" -fx-border-color: Red");*/

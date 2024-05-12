@@ -1,6 +1,7 @@
 package lk.ijse.repository;
 
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import lk.ijse.db.DbConnection;
 
@@ -75,12 +76,12 @@ public class EmployeeRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static Employee SEARCH(String id) throws SQLException {
-        String sql = "SELECT * FROM Employee WHERE Employee_id = ?";
+    public static Employee SEARCH(String contact) throws SQLException {
+        String sql = "SELECT * FROM Employee WHERE Contact = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setObject(1, id);
+        pstm.setObject(1, contact);
 
         ResultSet resultSet = pstm.executeQuery();
         if (resultSet.next()) {
@@ -88,10 +89,10 @@ public class EmployeeRepo {
             String Employee_name = resultSet.getString(2);
             String Address = resultSet.getString(3);
             int Contact = Integer.parseInt(resultSet.getString(4));
-            Date date = Date.valueOf(resultSet.getString(5));
+            Date date = resultSet.getDate(5);
             double Salary = Double.parseDouble(resultSet.getString(6));
             String Working_hours = resultSet.getString(7);
-            String Attendance = resultSet.getString(8);
+            ObservableList(String) Attendance = resultSet.getString(8);
             String Position = resultSet.getString(9);
             String User_id = resultSet.getString(10);
 

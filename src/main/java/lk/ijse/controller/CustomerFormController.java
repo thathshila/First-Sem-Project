@@ -169,7 +169,7 @@ public class CustomerFormController {
             boolean isDeleted = CustomerRepo.DELETE(Customer_id);
             initialize();
             if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted Successfully!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -190,9 +190,9 @@ public class CustomerFormController {
                 boolean isSave = CustomerRepo.SAVE(Customer_id, Customer_name, Contact, Address,Nic, date);
                 if (isSave) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Customer Save Successfully!", ButtonType.OK).show();
-                } else {
+                } /*else {
                     new Alert(Alert.AlertType.ERROR, "Customer Save Unsuccessfully ", ButtonType.OK).show();
-                }
+                }*/
             }else {
                 return;
             }
@@ -204,17 +204,16 @@ public class CustomerFormController {
 
     @FXML
     void btnSEARCHOnAction(ActionEvent event) throws SQLException {
-        String id = txtCustomerId.getText();
+        String contact = txtContact.getText();
 
-        Customer customer = CustomerRepo.SEARCH(id);
+        Customer customer = CustomerRepo.SEARCH(contact);
         if (customer != null) {
             txtCustomerId.setText(customer.getCustomer_id());
             txtCustomerName.setText(customer.getCustomer_name());
             txtContact.setText(String.valueOf(customer.getContact()));
             txtAddress.setText(customer.getAddress());
             txtNICNumber.setText(customer.getNic());
-            LocalDate now = LocalDate.now();
-            txtDate.setText(String.valueOf(now));
+            txtDate.setText(String.valueOf(customer.getDate()));
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Customer not found!").show();
         }
@@ -235,7 +234,7 @@ public class CustomerFormController {
             boolean isUpdated = CustomerRepo.UPDATE(customer);
             if (isUpdated) {
                 initialize();
-                new Alert(Alert.AlertType.CONFIRMATION, "Customer updated!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Customer Updated Successfully!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -308,19 +307,6 @@ public class CustomerFormController {
         return true;
     }
 
-    public void btnBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
-        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/customer.jrxml");
-        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-
-        Map<String,Object> data = new HashMap<>();
-       // data.put("CustomerID",txtCustomerId.getText());
-
-        JasperPrint jasperPrint =
-                JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
-        JasperViewer.viewReport(jasperPrint,false);
-    }
-
-
     public void txtCustomerNameOnAction(ActionEvent actionEvent) {
         txtContact.requestFocus();
     }
@@ -333,10 +319,22 @@ public class CustomerFormController {
         txtAddress.requestFocus();
     }
 
-   public void txtAddressOnAction(ActionEvent actionEvent) throws IOException{
+   public void txtAddressOnAction(ActionEvent actionEvent){
         btnSAVEOnAction(actionEvent);
 
    }
+
+    public void btnBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/customer.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+        Map<String,Object> data = new HashMap<>();
+        // data.put("CustomerID",txtCustomerId.getText());
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint,false);
+    }
 }
 
 

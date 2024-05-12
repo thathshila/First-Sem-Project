@@ -1,5 +1,6 @@
 package lk.ijse.model;
 
+import javafx.collections.ObservableList;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ public class Employee {
     private Date Date;
     private double Salary;
     private String WorkingHours;
-    private String Attendance;
+    private ObservableList Attendance;
     private String Position;
-private String userId;
+    private String userId;
 }

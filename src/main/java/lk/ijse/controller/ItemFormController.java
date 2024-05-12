@@ -222,7 +222,7 @@ public class ItemFormController {
             txtQuantity.setText(String.valueOf(item.getQty()));
             txtItemName.setText(item.getName());
             txtPrice.setText(String.valueOf(item.getPrice()));
-            //txtDate.setText(String.valueOf(item).getDate());
+            txtDate.setText(String.valueOf(item.getDate()));
             txtDescription.setText(item.getDescription());
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Item not found!").show();

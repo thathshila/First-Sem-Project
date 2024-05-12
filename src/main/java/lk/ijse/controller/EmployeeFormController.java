@@ -163,7 +163,7 @@ public class EmployeeFormController {
                         employee.getDate(),
                         employee.getSalary(),
                         employee.getWorkingHours(),
-                        employee.getAttendance(),
+                        employee.getAttendance().toString(),
                         employee.getPosition()
                 );
 
@@ -213,7 +213,7 @@ public class EmployeeFormController {
             boolean isDeleted = EmployeeRepo.DELETE(Employee_id);
             initialize();
             if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee deleted!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee Deleted Successfully!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -253,19 +253,18 @@ public class EmployeeFormController {
 
     @FXML
     void btnSEARCHOnAction(ActionEvent event) throws SQLException {
-        String id = txtEmployeeId.getText();
+        String contact = txtContact.getText();
 
-        Employee employee = EmployeeRepo.SEARCH(id);
+        Employee employee = EmployeeRepo.SEARCH(contact);
         if (employee != null) {
             txtEmployeeId.setText(employee.getEmployee_id());
             txtEmployeeName.setText(employee.getEmployee_name());
             txtAddress.setText(employee.getAddress());
             txtContact.setText(String.valueOf(employee.getContact()));
-            LocalDate now = LocalDate.now();
-            txtDate.setText(String.valueOf(now));
+            txtDate.setText(String.valueOf(employee.getDate()));
             txtSalary.setText(String.valueOf(employee.getSalary()));
             txtWorkHours.setText(employee.getWorkingHours());
-          //  choiceAttendance.setItems(employee.getAttendance());
+           choiceAttendance.setValue(employee.getAttendance());
             txtPosition.setText(employee.getPosition());
             // comUserId.setItems((ObservableList<String>) employee.getUserId());
 
@@ -341,9 +340,6 @@ public class EmployeeFormController {
         Regex.setTextColor(lk.ijse.util.TextField.NAME,txtEmployeeName);
     }
 
-    public void txtWorkHoursOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.util.TextField.QUANTITY,txtWorkHours);
-    }
 
     public void txtDateOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(lk.ijse.util.TextField.DATE,txtDate);
@@ -368,7 +364,6 @@ public class EmployeeFormController {
        if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;
        if (!Regex.setTextColor(lk.ijse.util.TextField.CONTACT, txtContact)) return false;
        if (!Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtSalary)) return false;
-       if (!Regex.setTextColor(lk.ijse.util.TextField.QUANTITY, txtWorkHours)) return false;
 
        return true;
    }

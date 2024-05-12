@@ -45,12 +45,12 @@ public class CustomerRepo {
     }
 
 
-    public static Customer SEARCH(String id) throws SQLException {
-        String sql = "SELECT * FROM Customer WHERE Customer_id = ?";
+    public static Customer SEARCH(String contact) throws SQLException {
+        String sql = "SELECT * FROM Customer WHERE Contact = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setObject(1, id);
+        pstm.setObject(1, contact);
 
         ResultSet resultSet = pstm.executeQuery();
         if (resultSet.next()) {
@@ -59,10 +59,9 @@ public class CustomerRepo {
             int Contact = Integer.parseInt(resultSet.getString(3));
             String Address = resultSet.getString(4);
             String Nic = resultSet.getString(5);
-            Date Date = java.sql.Date.valueOf(resultSet.getString(6));
+            Date date = resultSet.getDate(6);
 
-
-            Customer customer = new Customer(Customer_id, Customer_name, Contact, Address, Nic, Date);
+            Customer customer = new Customer(Customer_id, Customer_name, Contact, Address, Nic, date);
             return customer;
         }
 
@@ -94,15 +93,17 @@ public class CustomerRepo {
         pstm.setObject(4, address);
         pstm.setObject(5, nic);
         pstm.setObject(6, date);
+        return pstm.executeUpdate() > 0;
+    }
 
-        int effectedRows = pstm.executeUpdate();
+      /*  int effectedRows = pstm.executeUpdate();
         if (effectedRows > 0) {
             new Alert(Alert.AlertType.CONFIRMATION, "Customer save successfully!!!").show();
         } else {
             new Alert(Alert.AlertType.ERROR, "Can't save this customer").show();
         }
         return false;
-    }
+    }*/
 
     public static List<String> getNIC() throws SQLException {
         String sql = "SELECT Nic FROM Customer";

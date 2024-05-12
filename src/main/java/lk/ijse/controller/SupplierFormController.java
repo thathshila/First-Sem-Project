@@ -244,9 +244,9 @@ public class SupplierFormController {
 
     @FXML
     void btnSEARCHOnAction(ActionEvent event) throws SQLException {
-        String id = txtSupplierId.getText();
+        String contact = txtContact.getText();
 
-        Supplier supplier = SupplierRepo.SEARCH(id);
+        Supplier supplier = SupplierRepo.SEARCH(contact);
         if (supplier != null) {
             txtSupplierId.setText(supplier.getSupplier_id());
             txtSupplierName.setText(supplier.getSupplier_name());
