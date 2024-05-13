@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anpmain2" prefHeight="1012.0" prefWidth="1960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
+<AnchorPane fx:id="anpmain2" prefHeight="1009.0" prefWidth="1973.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <children>
-      <ImageView fitHeight="1012.0" fitWidth="1960.0">
+      <ImageView fx:id="anpmain1" fitHeight="1017.0" fitWidth="1981.0" layoutX="-8.0">
          <image>
             <Image url="@../asserts/new.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="anpmain1" layoutX="410.0" layoutY="73.0" prefHeight="865.0" prefWidth="1350.0" style="-fx-background-color: white;" />
-      <AnchorPane fx:id="anpmain3" layoutY="-7.0" opacity="0.55" prefHeight="1019.0" prefWidth="344.0">
+      <AnchorPane fx:id="anpmain3" opacity="0.55" prefHeight="1017.0" prefWidth="398.0">
          <children>
             <JFXButton fx:id="btnCustomer" layoutX="168.0" layoutY="171.0" onAction="#btnCustomerOnAction" prefHeight="74.0" prefWidth="172.0" text="CUSTOMER">
                <font>
@@ -46,7 +45,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnDashboard" layoutX="168.0" layoutY="56.0" onAction="#btnDashboardOnAction" prefHeight="74.0" prefWidth="172.0" text="DASHBOARD">
+            <JFXButton fx:id="btnDashboard" layoutX="168.0" layoutY="56.0" onAction="#btnDashboardOnAction" prefHeight="74.0" prefWidth="172.0" styleClass="shadow" stylesheets="@../css/DashFile.css" text="DASHBOARD">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -88,5 +87,6 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="ANP2" layoutX="423.0" layoutY="181.0" prefHeight="836.0" prefWidth="1550.0" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>

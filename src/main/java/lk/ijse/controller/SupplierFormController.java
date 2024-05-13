@@ -12,11 +12,16 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.db.DbConnection;
 import lk.ijse.model.Supplier;
 import lk.ijse.model.tm.SupplierTm;
 import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.SupplierRepo;
 import lk.ijse.util.Regex;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -350,5 +355,14 @@ public class SupplierFormController {
         if (!Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtUnitPrice)) return false;
 
         return true;
+    }
+
+    public void btnShowDetailsOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/SupplierDetails.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint, false);
     }
 }

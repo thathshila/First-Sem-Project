@@ -170,6 +170,7 @@ public class CustomerFormController {
             initialize();
             if (isDeleted) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted Successfully!").show();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -190,6 +191,7 @@ public class CustomerFormController {
                 boolean isSave = CustomerRepo.SAVE(Customer_id, Customer_name, Contact, Address,Nic, date);
                 if (isSave) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Customer Save Successfully!", ButtonType.OK).show();
+                    clearFields();
                 } /*else {
                     new Alert(Alert.AlertType.ERROR, "Customer Save Unsuccessfully ", ButtonType.OK).show();
                 }*/
@@ -235,6 +237,7 @@ public class CustomerFormController {
             if (isUpdated) {
                 initialize();
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer Updated Successfully!").show();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

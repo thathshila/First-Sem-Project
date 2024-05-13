@@ -7,7 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -18,11 +17,11 @@
             <Image url="@../asserts/new.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="rootNode1" layoutX="241.0" layoutY="113.0" prefHeight="786.0" prefWidth="1490.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="rootNode1" layoutX="202.0" layoutY="117.0" prefHeight="786.0" prefWidth="1490.0" style="-fx-background-color: white;">
          <children>
-            <Text layoutX="852.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SECRET BLOOM PLANT NURSERY">
+            <Text layoutX="878.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SECRET BLOOM PLANT NURSERY">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="Ponnala" size="35.0" />
                </font>
             </Text>
             <Button fx:id="btnRegister" layoutX="1227.0" layoutY="689.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="28.0" prefWidth="196.0" style="-fx-background-color: light blue;" text="Register  Now">
@@ -35,25 +34,24 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <Button fx:id="btnForgotpassword" layoutX="1270.0" layoutY="460.0" mnemonicParsing="false" onAction="#btnForgotpasswordOnAction" style="-fx-background-color: white;" text="Forgot password">
+            <Button fx:id="btnForgotpassword" layoutX="1096.0" layoutY="581.0" mnemonicParsing="false" onAction="#btnForgotpasswordOnAction" style="-fx-background-color: white;" text="Forgot password" textFill="#3168ab">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Line endX="75.0" layoutX="1346.0" layoutY="488.0" startX="-76.0" />
-            <PasswordField fx:id="txtPassword" layoutX="1041.0" layoutY="375.0" onAction="#passwordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="40.0" prefWidth="347.0" style="-fx-background-color: e5989b;" />
-            <Text layoutX="896.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+            <PasswordField fx:id="txtPassword" layoutX="960.0" layoutY="338.0" onAction="#passwordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="45.0" prefWidth="420.0" styleClass="textFieldRedius" stylesheets="@../css/DashFile.css" />
+            <Text layoutX="974.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="txtUsername" layoutX="1041.0" layoutY="214.0" onAction="#userNameOnAction" onKeyReleased="#txtUsernameOnKeyReleased" prefHeight="40.0" prefWidth="347.0" style="-fx-background-color: e5989b;" />
-            <Text layoutX="894.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+            <TextField fx:id="txtUsername" layoutX="960.0" layoutY="230.0" onAction="#userNameOnAction" onKeyReleased="#txtUsernameOnKeyReleased" prefHeight="45.0" prefWidth="420.0" styleClass="textFieldRedius" stylesheets="@../css/DashFile.css" />
+            <Text layoutX="972.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Text>
-            <JFXButton fx:id="btnLOGIN" layoutX="1155.0" layoutY="590.0" onAction="#btnLOGINOnAction" prefHeight="66.0" prefWidth="151.0" style="-fx-background-color: e5989b;" text="LOGIN">
+            <JFXButton fx:id="btnLOGIN" layoutX="961.0" layoutY="527.0" onAction="#btnLOGINOnAction" prefHeight="52.0" prefWidth="420.0" styleClass="textFieldRedius" stylesheets="@../css/DashFile.css" text="LOGIN">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -63,7 +61,7 @@
                   <Image url="@../asserts/houseofhomeplants-1.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="144.0" fitWidth="181.0" layoutX="1306.0" layoutY="3.0">
+            <ImageView fitHeight="144.0" fitWidth="181.0" layoutX="1306.0" layoutY="61.0">
                <image>
                   <Image url="@../asserts/3.jpg" />
                </image>

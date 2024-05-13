@@ -26,3 +26,10 @@
 .logout:hover{
     -fx-background-color: #b9000d;
 }
+
+.textFieldRedius{
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-background-color: none;
+    -fx-border-color: green;
+}

@@ -65,7 +65,7 @@ public class PlaceOrderRepo {
         return false;
     }
 
-    public static String calculateNetTotal(String orderId) {
+  /*  public static String calculateNetTotal(String orderId) {
         double netTotal = 0.0;
 
         String sql = "SELECT SUM(b.Price * od.qty) " +
@@ -89,7 +89,7 @@ public class PlaceOrderRepo {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 }
 
 

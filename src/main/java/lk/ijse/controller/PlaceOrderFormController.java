@@ -135,7 +135,7 @@ public class PlaceOrderFormController {
 
     private String generateNextOrderId(String currentId) {
         if(currentId != null) {
-            String[] split = currentId.split("O");  //" ", "2"
+            String[] split = currentId.split("O");
             int idNum = Integer.parseInt(split[1]);
             return "O" + ++idNum;
         }
@@ -321,7 +321,7 @@ public class PlaceOrderFormController {
         }
 
         @FXML
-        void btnPlaceOrderOnAction (ActionEvent event){
+        void btnPlaceOrderOnAction (ActionEvent event) throws JRException, SQLException {
             String orderId = txtOrderId.getText();
             Date date = Date.valueOf(LocalDate.now());
             double Price = Double.parseDouble(txtPrice.getText());
@@ -356,7 +356,7 @@ public class PlaceOrderFormController {
                     tblPlaceOrder.setItems(obList);
                     calculateNetTotal();
                     getCurrentOrderId();
-                    generateBill(orderId);
+                 //   generateBill(orderId);
 
                 }else {
                     new Alert(Alert.AlertType.WARNING, "Order Placed Unsuccessfully!").show();
@@ -364,9 +364,10 @@ public class PlaceOrderFormController {
                 }catch (SQLException e){
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
+            makeOrderBill();
         }
 
-    private void generateBill(String orderId) {
+ /*   private void generateBill(String orderId) {
         try {
             String netTotal = calculateNetTotal(orderId);
 
@@ -383,9 +384,18 @@ public class PlaceOrderFormController {
          } catch (JRException | SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
-    private String calculateNetTotal(String orderId) {
-        return PlaceOrderRepo.calculateNetTotal(orderId);
+    public void makeOrderBill() throws JRException, SQLException {
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/Order_Item_Details.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
+        JasperViewer.viewReport(jasperPrint, false);
     }
+   /* private String calculateNetTotal(String orderId) {
+        return PlaceOrderRepo.calculateNetTotal(orderId);
+    }*/
 }
+

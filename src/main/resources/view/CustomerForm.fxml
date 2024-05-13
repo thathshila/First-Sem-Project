@@ -13,14 +13,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="865.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
+<AnchorPane fx:id="rootNode" prefHeight="848.0" prefWidth="1449.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CustomerFormController">
    <children>
-      <Text layoutX="689.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" MANAGE  CUSTOMERS" wrappingWidth="334.0">
+      <Text layoutX="814.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" MANAGE  CUSTOMERS" wrappingWidth="334.0">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <ImageView fitHeight="118.0" fitWidth="154.0" layoutX="1189.0" layoutY="1.0">
+      <ImageView fitHeight="118.0" fitWidth="154.0" layoutX="1284.0" layoutY="14.0">
          <image>
             <Image url="@../asserts/3.jpg" />
          </image>
@@ -61,19 +61,18 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TableView fx:id="tblCustomer" layoutX="562.0" layoutY="616.0" onMouseClicked="#tblCustomerOnMouseClicked" prefHeight="224.0" prefWidth="771.0">
+      <TableView fx:id="tblCustomer" layoutX="579.0" layoutY="575.0" onMouseClicked="#tblCustomerOnMouseClicked" prefHeight="231.0" prefWidth="852.0">
         <columns>
           <TableColumn fx:id="colCustomerId" prefWidth="111.0" text="CustomerId" />
           <TableColumn fx:id="colName" prefWidth="127.0" text="Name" />
-            <TableColumn minWidth="0.0" prefWidth="0.0" text="C1" />
-            <TableColumn fx:id="colContact" prefWidth="116.0" text="Contact" />
-            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="122.0" text="Address" />
-            <TableColumn fx:id="colNIC" minWidth="0.0" prefWidth="122.0" text="NIC" />
-            <TableColumn fx:id="colDate" prefWidth="171.0" text="Date" />
+            <TableColumn fx:id="colContact" prefWidth="137.0" text="Contact" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="123.0" text="Address" />
+            <TableColumn fx:id="colNIC" minWidth="0.0" prefWidth="158.0" text="NIC" />
+            <TableColumn fx:id="colDate" prefWidth="224.0" text="Date" />
         </columns>
       </TableView>
-      <Button fx:id="btnbill" layoutX="1247.0" layoutY="562.0" mnemonicParsing="false" onAction="#btnBillOnAction" text="bill" />
-      <JFXButton fx:id="btnSAVE" layoutX="1209.0" layoutY="154.0" onAction="#btnSAVEOnAction" prefHeight="52.0" prefWidth="115.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="Save">
+      <Button fx:id="btnbill" layoutX="1341.0" layoutY="544.0" mnemonicParsing="false" onAction="#btnBillOnAction" text="bill" />
+      <JFXButton fx:id="btnSAVE" layoutX="1312.0" layoutY="154.0" onAction="#btnSAVEOnAction" prefHeight="52.0" prefWidth="115.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="Save">
          <styleClass>
             <String fx:value="logout1" />
             <String fx:value="logout" />
@@ -82,13 +81,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Button fx:id="btnDELETE" layoutX="1233.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="52.0" prefWidth="66.0" style="-fx-border-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="Delete" />
-      <Button fx:id="btnUPDATE" layoutX="1233.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" text="Update" />
-      <Button fx:id="btnCLEAR" layoutX="1230.0" layoutY="505.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" text="clear" />
-      <Button fx:id="btnSEARCH" layoutX="1235.0" layoutY="373.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" text="search" />
-      <Button fx:id="btnBACK" layoutX="1242.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnBACKOnAction" text="back" />
+      <Button fx:id="btnDELETE" layoutX="1328.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="52.0" prefWidth="66.0" style="-fx-border-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="Delete" />
+      <Button fx:id="btnUPDATE" layoutX="1328.0" layoutY="307.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" text="Update" />
+      <Button fx:id="btnCLEAR" layoutX="1334.0" layoutY="494.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" text="clear" />
+      <Button fx:id="btnSEARCH" layoutX="1330.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" text="search" />
+      <Button fx:id="btnBACK" layoutX="1337.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnBACKOnAction" text="back" />
       <AnchorPane prefHeight="865.0" prefWidth="550.0" />
-      <ImageView fitHeight="865.0" fitWidth="557.0">
+      <ImageView fitHeight="868.0" fitWidth="557.0">
          <image>
             <Image url="@../asserts/35.jpg" />
          </image>
