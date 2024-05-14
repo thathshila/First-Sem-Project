@@ -68,7 +68,7 @@ public class PlaceOrderRepo {
   /*  public static String calculateNetTotal(String orderId) {
         double netTotal = 0.0;
 
-        String sql = "SELECT SUM(b.Price * od.qty) " +
+        String sql = "SELECT SUM(i.Price * oi.qty) " +
                 "FROM Items i " +
                 "JOIN Order_Item oi ON i.Item_id = oi.Item_id " +
                 "WHERE oi.orderId = ?";

@@ -38,8 +38,13 @@ public class LoginFormController {
 
     @FXML
     public  void btnLOGINOnAction(ActionEvent event) throws IOException{
-        String username = txtUsername.getText();
-        String pw = txtPassword.getText();
+//        String username = txtUsername.getText();
+//        String pw = txtPassword.getText();
+
+        String username = "Ashi";
+        String pw = "asha123";
+
+
 
         try {
             checkCredential(username, pw);

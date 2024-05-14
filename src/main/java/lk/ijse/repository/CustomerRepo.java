@@ -93,17 +93,9 @@ public class CustomerRepo {
         pstm.setObject(4, address);
         pstm.setObject(5, nic);
         pstm.setObject(6, date);
+
         return pstm.executeUpdate() > 0;
     }
-
-      /*  int effectedRows = pstm.executeUpdate();
-        if (effectedRows > 0) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Customer save successfully!!!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Can't save this customer").show();
-        }
-        return false;
-    }*/
 
     public static List<String> getNIC() throws SQLException {
         String sql = "SELECT Nic FROM Customer";

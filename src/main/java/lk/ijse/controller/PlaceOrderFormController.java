@@ -20,6 +20,7 @@ import lk.ijse.model.tm.CartTm;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -28,9 +29,11 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import org.controlsfx.control.textfield.TextFields;
 
 public class PlaceOrderFormController {
 
+    public TextField txtNIC;
     @FXML
     private Button btnADD;
 
@@ -119,6 +122,18 @@ public class PlaceOrderFormController {
         getUserId();
         setCellValueFactory();
         getCurrentOrderId();
+        setNIC();
+    }
+
+    private void setNIC() throws SQLException {
+        List<String> nic = CustomerRepo.getNIC();
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        for (String n : nic){
+            obList.add(n);
+        }
+
+        TextFields.bindAutoCompletion(txtNIC, obList);
     }
 
     private void getCurrentOrderId() {
@@ -330,7 +345,6 @@ public class PlaceOrderFormController {
 
 
 
-
             var order = new Order(orderId,date,Price,cusId,userId);
 
             List<OrderItem>  odList = new ArrayList<>();
@@ -355,19 +369,21 @@ public class PlaceOrderFormController {
                     obList.clear();
                     tblPlaceOrder.setItems(obList);
                     calculateNetTotal();
+                    makeOrderBill();
                     getCurrentOrderId();
                  //   generateBill(orderId);
 
                 }else {
                     new Alert(Alert.AlertType.WARNING, "Order Placed Unsuccessfully!").show();
                 }
-                }catch (SQLException e){
+            }catch (SQLException e){
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-            makeOrderBill();
+
+
         }
 
- /*   private void generateBill(String orderId) {
+  /*  private void generateBill(String orderId) {
         try {
             String netTotal = calculateNetTotal(orderId);
 
@@ -387,12 +403,18 @@ public class PlaceOrderFormController {
     }*/
 
     public void makeOrderBill() throws JRException, SQLException {
-        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/Order_Item_Details.jrxml");
+        JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/ORDERBILL.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
+        Map<String,Object> data = new HashMap<>();
+        data.put("OrderID",txtOrderId.getText());
 
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DbConnection.getInstance().getConnection());
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
         JasperViewer.viewReport(jasperPrint, false);
+    }
+
+    public void btnGenareteBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+
     }
    /* private String calculateNetTotal(String orderId) {
         return PlaceOrderRepo.calculateNetTotal(orderId);

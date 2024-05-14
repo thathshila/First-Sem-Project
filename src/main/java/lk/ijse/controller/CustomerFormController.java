@@ -2,6 +2,8 @@ package lk.ijse.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.function.Predicate;
 
 
 public class CustomerFormController {
@@ -97,6 +100,7 @@ public class CustomerFormController {
         setCellValueFactory();
         loadAllCustomers();
         getCurrentCustomerId();
+        searchFilter();
     }
 
     private void setDate() {
@@ -113,8 +117,10 @@ public class CustomerFormController {
         colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
     }
 
+    ObservableList<CustomerTm> obList;
+
     private void loadAllCustomers() {
-        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+        obList = FXCollections.observableArrayList();
 
         try {
             List<Customer> customerList = CustomerRepo.getAll();
@@ -190,11 +196,10 @@ public class CustomerFormController {
             if (isValied()) {
                 boolean isSave = CustomerRepo.SAVE(Customer_id, Customer_name, Contact, Address,Nic, date);
                 if (isSave) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "Customer Save Successfully!", ButtonType.OK).show();
-                    clearFields();
-                } /*else {
-                    new Alert(Alert.AlertType.ERROR, "Customer Save Unsuccessfully ", ButtonType.OK).show();
-                }*/
+                    new Alert(Alert.AlertType.CONFIRMATION, "Customer save successfully!!!").show();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Can't save this customer").show();
+                }
             }else {
                 return;
             }
@@ -261,6 +266,28 @@ public class CustomerFormController {
         return "C001";
     }
 
+    private void searchFilter(){
+        FilteredList<CustomerTm> filterData = new FilteredList<>(obList, e -> true);
+        txtNICNumber.setOnKeyPressed(e ->{
+            txtNICNumber.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+                filterData.setPredicate((Predicate<? super CustomerTm>) customer ->{
+                    if (newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                        return true;
+                    }
+                    String searchKeyword = newValue.toLowerCase();
+                    if (customer.getCustomer_id().toLowerCase().indexOf(searchKeyword) > -1){
+                        return true;
+                    }else if(customer.getNic().toLowerCase().indexOf(searchKeyword) > -1){
+                        return true;
+                    }
+                    return false;
+                });
+            }));
+            SortedList<CustomerTm> buyer = new SortedList<>(filterData);
+            buyer.comparatorProperty().bind(tblCustomer.comparatorProperty());
+            tblCustomer.setItems(buyer);
+        });
+    }
 
     public void tblCustomerOnMouseClicked(MouseEvent mouseEvent) {
         Integer index = tblCustomer.getSelectionModel().getSelectedIndex();

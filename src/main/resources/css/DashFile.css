@@ -28,8 +28,18 @@
 }
 
 .textFieldRedius{
-    -fx-background-radius: 20px;
-    -fx-border-radius: 20px;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
     -fx-background-color: none;
     -fx-border-color: green;
+}
+
+.textFieldRedius:hover{
+    -fx-background-color: #B0EBB4;
+}
+
+
+
+.btnTextColor{
+    -fx-text-fill: black;
 }

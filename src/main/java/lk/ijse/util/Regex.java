@@ -12,7 +12,7 @@ public class Regex {
 
         switch (textField) {
             case ID:
-                filed = "^([A-Z][0-9]{3})$";
+                filed = "";
                 break;
             case NAME:
                 filed = "^[A-z|\\\\s]{3,}$";
