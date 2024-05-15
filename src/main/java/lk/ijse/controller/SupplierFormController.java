@@ -340,12 +340,9 @@ public class SupplierFormController {
         Regex.setTextColor(lk.ijse.util.TextField.NAME, txtSupplierName);
     }
 
-    public void txtSupplierIdOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.util.TextField.ID, txtSupplierId);
-    }
 
     public boolean isValied() {
-        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtSupplierId)) return false;
+
         if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtSupplierName)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtAddress)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;

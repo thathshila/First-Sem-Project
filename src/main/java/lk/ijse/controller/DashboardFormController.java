@@ -20,7 +20,7 @@ import java.sql.SQLException;
 public class DashboardFormController {
 
     public AnchorPane rootNode;
-
+    public AnchorPane rootNode1;
 
     public Label lblCustomerCount;
 
@@ -51,11 +51,11 @@ public class DashboardFormController {
         return 0;
     }
     public void btnEXITOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/LoginForm.fxml"));
+        AnchorPane rootNode1 = FXMLLoader.load(this.getClass().getResource("/view/LoginForm.fxml"));
 
-        Scene scene = new Scene(rootNode);
+        Scene scene = new Scene(rootNode1);
 
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        Stage stage = (Stage) this.rootNode1.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Login Form");
     }

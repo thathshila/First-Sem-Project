@@ -264,9 +264,6 @@ public class ItemFormController {
     }
 
 
-    public void txtItemIdOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.util.TextField.ID, txtItemId);
-    }
 
     public void txtItemNameOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(lk.ijse.util.TextField.NAME, txtItemName);
@@ -285,7 +282,6 @@ public class ItemFormController {
     }
 
     public boolean isValied() {
-        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtItemId)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtItemName)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.PRICE, txtPrice)) return false;

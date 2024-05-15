@@ -83,9 +83,6 @@ public class RegisterFormController {
         stage.centerOnScreen();
     }
 
-    public void txtUserIdOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.util.TextField.ID, txtUserId);
-    }
 
     public void txtUserNameOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(lk.ijse.util.TextField.USERNAME, txtUserName);
@@ -100,7 +97,6 @@ public class RegisterFormController {
     }
 
     public boolean isValied() {
-        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtUserId)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtUserName)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.PASSWORD, txtPassword)) return false;

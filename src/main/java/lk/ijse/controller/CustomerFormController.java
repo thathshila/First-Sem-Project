@@ -302,10 +302,6 @@ public class CustomerFormController {
         txtDate.setText(colDate.getCellData(index).toString());
     }
 
-    public void txtCustomerIdOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.util.TextField.ID, txtCustomerId);
-    }
-
     public void txtCustomerNameOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(lk.ijse.util.TextField.NAME, txtCustomerName);
     }
@@ -327,7 +323,6 @@ public class CustomerFormController {
     }
 
     public boolean isValied() {
-        if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtCustomerId)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtCustomerName)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtAddress)) return false;
         if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;

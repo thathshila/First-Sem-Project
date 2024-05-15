@@ -11,9 +11,6 @@ public class Regex {
         String filed = "";
 
         switch (textField) {
-            case ID:
-                filed = "[A-Za-z]\\d+\n";
-                break;
             case NAME:
                 filed = "^[A-z|\\\\s]{3,}$";
                 break;

@@ -332,9 +332,7 @@ public class EmployeeFormController {
         txtPosition.setText(colPosition.getCellData(index).toString());
     }
 
-   public void txtEmployeeIdOnKeyReleased(KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.util.TextField.ID,txtEmployeeId);
-    }
+
 
     public void txtEmployeeNameOnKeyReleased(KeyEvent keyEvent) {
         Regex.setTextColor(lk.ijse.util.TextField.NAME,txtEmployeeName);
@@ -358,7 +356,6 @@ public class EmployeeFormController {
    }
 
   public  boolean isValied(){
-       if (!Regex.setTextColor(lk.ijse.util.TextField.ID, txtEmployeeId)) return false;
        if (!Regex.setTextColor(lk.ijse.util.TextField.NAME, txtEmployeeName)) return false;
        if (!Regex.setTextColor(lk.ijse.util.TextField.ADDRESS, txtAddress)) return false;
        if (!Regex.setTextColor(lk.ijse.util.TextField.DATE, txtDate)) return false;

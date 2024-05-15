@@ -61,17 +61,18 @@ public class LoginFormController {
         pstm.setObject(1, username);
 
         ResultSet resultSet = pstm.executeQuery();
-        if(resultSet.next()) {
-            String dbPw = resultSet.getString("password");
+        if (resultSet.next()) {
+            if (isValied()) {
+                String dbPw = resultSet.getString("password");
 
-            if(pw.equals(dbPw)) {
-                navigateToTheDashboard();
+                if (pw.equals(dbPw)) {
+                    navigateToTheDashboard();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "sorry! password is incorrect!").show();
+                }
             } else {
-                new Alert(Alert.AlertType.ERROR, "sorry! password is incorrect!").show();
+                new Alert(Alert.AlertType.INFORMATION, "sorry! user name can't be find!").show();
             }
-
-        } else {
-            new Alert(Alert.AlertType.INFORMATION, "sorry! user name can't be find!").show();
         }
     }
 

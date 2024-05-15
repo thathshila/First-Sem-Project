@@ -37,7 +37,11 @@
 .textFieldRedius:hover{
     -fx-background-color: #B0EBB4;
 }
-
+.boader{
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 30px 30px 30px 30px;
+}
 
 
 .btnTextColor{
