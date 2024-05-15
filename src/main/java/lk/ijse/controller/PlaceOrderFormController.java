@@ -69,6 +69,8 @@ public class PlaceOrderFormController {
     private TextField txtContact;
 
     @FXML
+    private TextField txtItemId;
+    @FXML
     private JFXComboBox<String> combItemId;
 
     @FXML
@@ -118,7 +120,7 @@ public class PlaceOrderFormController {
     public void initialize() throws SQLException {
         setDate();
         //getCustomerNIC();
-        getItemIds();
+     //   getItemIds();
         getUserId();
         setCellValueFactory();
         getCurrentOrderId();
@@ -184,7 +186,7 @@ public class PlaceOrderFormController {
 
 
 
-    private void getCustomerNIC() {
+   /* private void getCustomerNIC() {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
@@ -214,7 +216,7 @@ public class PlaceOrderFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
     private void getUserId() {
         ObservableList<String> obList = FXCollections.observableArrayList();
@@ -233,7 +235,7 @@ public class PlaceOrderFormController {
 
     @FXML
     void btnADDOnAction(ActionEvent event) {
-        String ItemId = combItemId.getValue();
+        String ItemId = txtItemId.getText();
         String ItemName = txtItemName.getText();
         int Quantity = Integer.parseInt(txtQuantity.getText());
         double Price = Double.parseDouble(txtPrice.getText());
@@ -313,7 +315,7 @@ public class PlaceOrderFormController {
         }
 
 
-        @FXML
+      /*  @FXML
         void combItemIdOnAction (ActionEvent event){
             String item_id = (String) combItemId.getValue();
 
@@ -327,11 +329,24 @@ public class PlaceOrderFormController {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
+    public void txtItemNameOnAction(ActionEvent actionEvent) throws IOException {
+        String itemName = txtItemName.getText();
 
-     /*   @FXML
-        void combNICOnAction (ActionEvent event){
-            String nic =  combNIC.getValue();
+        try {
+            Item item = ItemRepo.searchItem(itemName);
+            txtItemId.setText(item.getItem_id());
+          //  txtItemName.setText(item.getName());
+            txtQtyOnHand.setText(String.valueOf(item.getQty()));
+            txtPrice.setText(String.valueOf(item.getPrice()));
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void txtNICOnAction(ActionEvent actionEvent) throws IOException {
+            String nic =  txtNIC.getText();
 
             try {
                 Customer customer = CustomerRepo.SEARCHbyNic(nic);
@@ -344,7 +359,7 @@ public class PlaceOrderFormController {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        }*/
+        }
 
         @FXML
         void btnPlaceOrderOnAction (ActionEvent event) throws JRException, SQLException {

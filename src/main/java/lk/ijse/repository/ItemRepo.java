@@ -48,7 +48,7 @@ public class ItemRepo {
     }
 
     public static Item searchItem(String id) throws SQLException {
-        String sql = "SELECT * FROM Items WHERE Item_id = ?";
+        String sql = "SELECT * FROM Items WHERE Item_name = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class ItemRepo {
         return itemList;
     }
 
-    public static List<String> getItemId() throws SQLException {
+  /*  public static List<String> getItemId() throws SQLException {
         String sql = "SELECT Item_id FROM Items";
 
         ResultSet resultSet = DbConnection.getInstance()
@@ -134,7 +134,7 @@ public class ItemRepo {
             idList.add(resultSet.getString(1));
         }
         return idList;
-    }
+    }*/
 
     public static boolean UpdateQty(OrderItem items) throws SQLException {
         String sql = "Update Items set Quantity = Quantity - ? where Item_id = ?";

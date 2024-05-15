@@ -76,13 +76,12 @@
             <TableColumn fx:id="colAction" prefWidth="177.0" text="Action" />
         </columns>
       </TableView>
-      <JFXComboBox fx:id="combItemId" layoutX="134.0" layoutY="217.0" onAction="#combItemIdOnAction" prefHeight="24.0" prefWidth="219.0" style="-fx-background-color: white;" />
       <Text layoutX="28.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Id">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtItemName" layoutX="134.0" layoutY="272.0" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="txtItemName" layoutX="134.0" layoutY="272.0" onAction="#txtItemNameOnAction" prefHeight="28.0" prefWidth="219.0" />
       <Text layoutX="8.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHand">
          <font>
             <Font size="17.0" />
@@ -126,8 +125,9 @@
          </font>
       </Text>
       <JFXButton fx:id="btnGenareteBill" layoutX="525.0" layoutY="423.0" onAction="#btnGenareteBillOnAction" text="BILL" />
-      <TextField fx:id="txtNIC" layoutX="548.0" layoutY="155.0" prefHeight="39.0" prefWidth="244.0" />
+      <TextField fx:id="txtNIC" layoutX="548.0" layoutY="155.0" onAction="#txtNICOnAction" prefHeight="39.0" prefWidth="244.0" />
       <JFXButton fx:id="btnPlaceOrder" layoutX="1330.0" layoutY="672.0" onAction="#btnPlaceOrderOnAction" prefHeight="68.0" prefWidth="125.0" text="Place Order" />
       <JFXButton fx:id="btnBack" layoutX="1340.0" layoutY="740.0" onAction="#btnBackOnAction" prefHeight="59.0" prefWidth="104.0" text="BACK" />
+      <TextField fx:id="txtItemId" layoutX="134.0" layoutY="213.0" prefHeight="30.0" prefWidth="219.0" />
    </children>
 </AnchorPane>
