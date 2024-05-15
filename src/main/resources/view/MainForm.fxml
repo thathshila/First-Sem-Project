@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -113,5 +114,6 @@
             <Image url="@../asserts/icons8-dashboard-64.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblUser" layoutX="1751.0" layoutY="59.0" prefHeight="57.0" prefWidth="104.0" />
    </children>
 </AnchorPane>

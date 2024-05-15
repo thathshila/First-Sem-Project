@@ -36,13 +36,14 @@ public class LoginFormController {
 
     public AnchorPane rootNode1;
 
+    String username;
     @FXML
     public  void btnLOGINOnAction(ActionEvent event) throws IOException{
-//        String username = txtUsername.getText();
-//        String pw = txtPassword.getText();
+        username = txtUsername.getText();
+       String pw = txtPassword.getText();
 
-        String username = "Ashi";
-        String pw = "asha123";
+       // String username = "Ashi";
+    //    String pw = "asha123";
 
 
 
@@ -75,14 +76,29 @@ public class LoginFormController {
     }
 
     private void navigateToTheDashboard() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/MainForm.fxml"));
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("/view/MainForm.fxml"));
+        AnchorPane anchorPane = loader.load();
+
+        MainFormController mainFormController =loader.getController();
+        mainFormController.setUserID(username);
+
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.setScene(anchorPane.getScene());
+        stage.centerOnScreen();
+        stage.setTitle("Main Form");
+        stage.show();
+        rootNode.getScene().getWindow().hide();
+      /*  AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/MainForm.fxml"));
 
         Scene scene = new Scene(rootNode);
 
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Main Form");
+        stage.setTitle("Main Form");*/
 }
     @FXML
    public void btnRegisterOnAction(ActionEvent event) throws IOException {
@@ -130,3 +146,5 @@ public class LoginFormController {
         return true;
     }
 }
+
+

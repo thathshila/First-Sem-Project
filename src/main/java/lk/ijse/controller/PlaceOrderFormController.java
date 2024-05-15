@@ -336,7 +336,7 @@ public class PlaceOrderFormController {
         try {
             Item item = ItemRepo.searchItem(itemName);
             txtItemId.setText(item.getItem_id());
-          //  txtItemName.setText(item.getName());
+            //txtItemName.setText(item.getName());
             txtQtyOnHand.setText(String.valueOf(item.getQty()));
             txtPrice.setText(String.valueOf(item.getPrice()));
 
