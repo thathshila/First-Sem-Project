@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -10,93 +10,93 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="694.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ItemFormController">
+<AnchorPane fx:id="rootNode" prefHeight="836.0" prefWidth="1513.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ItemFormController">
    <children>
-      <Text layoutX="373.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE  ITEM-STOCK" wrappingWidth="288.7978515625">
+      <Text layoutX="819.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE  ITEM-STOCK" wrappingWidth="288.7978515625">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Text>
-      <ImageView fitHeight="129.0" fitWidth="155.0" layoutX="974.0">
+      <ImageView fitHeight="129.0" fitWidth="155.0" layoutX="1344.0" layoutY="14.0">
          <image>
             <Image url="@../asserts/3.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="83.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemId">
+      <Text layoutX="631.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemId">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtItemId" layoutX="68.0" layoutY="134.0" onKeyReleased="#txtItemIdOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
-      <Text layoutX="79.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemName">
+      <TextField fx:id="txtItemId" layoutX="631.0" layoutY="177.0" onKeyReleased="#txtItemIdOnKeyReleased" prefHeight="37.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <Text layoutX="631.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemName">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtItemName" layoutX="59.0" layoutY="227.0" onKeyReleased="#txtItemNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
-      <TextField fx:id="txtQuantity" layoutX="579.0" layoutY="134.0" onKeyReleased="#txtQuantityOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
-      <Text layoutX="586.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+      <TextField fx:id="txtItemName" layoutX="631.0" layoutY="299.0" onKeyReleased="#txtItemNameOnKeyReleased" prefHeight="37.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtQuantity" layoutX="1021.0" layoutY="177.0" onKeyReleased="#txtQuantityOnKeyReleased" prefHeight="37.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <Text layoutX="1021.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtPrice" layoutX="579.0" layoutY="227.0" onKeyReleased="#txtPriceOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
-      <Text layoutX="592.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+      <TextField fx:id="txtPrice" layoutX="1030.0" layoutY="299.0" onKeyReleased="#txtPriceOnKeyReleased" prefHeight="37.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <Text layoutX="1055.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDate" layoutX="68.0" layoutY="332.0" onKeyReleased="#txtDateOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
-      <Text layoutX="83.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+      <TextField fx:id="txtDate" layoutX="631.0" layoutY="422.0" onKeyReleased="#txtDateOnKeyReleased" prefHeight="37.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <Text layoutX="631.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDescription" layoutX="579.0" layoutY="332.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: lightgreen;" />
-      <Text layoutX="592.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+      <TextField fx:id="txtDescription" layoutX="1036.0" layoutY="422.0" prefHeight="37.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <Text layoutX="1030.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TableView fx:id="tblItem" layoutX="74.0" layoutY="418.0" onMouseClicked="#mouseClickOnAction" prefHeight="245.0" prefWidth="823.0" style="-fx-background-color: lightgreen;">
+      <TableView fx:id="tblItem" layoutX="609.0" layoutY="565.0" onMouseClicked="#mouseClickOnAction" prefHeight="245.0" prefWidth="766.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="96.0" text="Id" />
-          <TableColumn fx:id="colName" prefWidth="113.0" text="Name" />
-            <TableColumn fx:id="colQuantity" prefWidth="113.0" text="Quantity" />
-            <TableColumn fx:id="colPrice" prefWidth="137.0" text="Price" />
-            <TableColumn fx:id="colDate" prefWidth="161.0" text="Date" />
-            <TableColumn fx:id="colDescription" prefWidth="202.0" text="Description" />
+          <TableColumn fx:id="colId" prefWidth="116.0" text="Id" />
+          <TableColumn fx:id="colName" prefWidth="85.0" text="Name" />
+            <TableColumn fx:id="colQuantity" prefWidth="130.0" text="Quantity" />
+            <TableColumn fx:id="colPrice" prefWidth="126.0" text="Price" />
+            <TableColumn fx:id="colDate" prefWidth="130.0" text="Date" />
+            <TableColumn fx:id="colDescription" prefWidth="235.0" text="Description" />
         </columns>
       </TableView>
-      <Button layoutX="974.0" layoutY="191.0" mnemonicParsing="false" onAction="#btnSAVEOnAction" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: green;" text="SAVE">
+      <JFXButton layoutX="1388.0" layoutY="488.0" onAction="#btnUPDATEOnAction" prefHeight="53.0" prefWidth="99.0" style="-fx-background-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="UPDATE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
-      </Button>
-      <Button layoutX="979.0" layoutY="443.0" mnemonicParsing="false" onAction="#btnUPDATEOnAction" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: green;" text="UPDATE">
+      </JFXButton>
+      <JFXButton fx:id="btnSAVE" layoutX="1388.0" layoutY="191.0" onAction="#btnSAVEOnAction" prefHeight="46.0" prefWidth="83.0" text="SAVE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
-      </Button>
-      <Button layoutX="974.0" layoutY="530.0" mnemonicParsing="false" onAction="#btnSEARCHOnAction" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: green;" text="SEARCH">
+      </JFXButton>
+      <JFXButton fx:id="btnCLEAR" layoutX="1388.0" layoutY="290.0" onAction="#btnCLEAROnAction" prefHeight="46.0" prefWidth="83.0" style="-fx-background-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="CLEAR">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
-      </Button>
-      <Button layoutX="974.0" layoutY="617.0" mnemonicParsing="false" onAction="#btnBACKOnAction" prefHeight="46.0" prefWidth="130.0" style="-fx-background-color: green;" text="BACK">
+      </JFXButton>
+      <JFXButton layoutX="1389.0" layoutY="395.0" onAction="#btnDELETEOnAction" prefHeight="46.0" prefWidth="83.0" style="-fx-background-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="DELETE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
-      </Button>
-      <Button layoutX="979.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnDELETEOnAction" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: green;" text="DELETE">
+      </JFXButton>
+      <JFXButton layoutX="1375.0" layoutY="585.0" onAction="#btnSEARCHOnAction" prefHeight="53.0" prefWidth="110.0" style="-fx-background-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="SEARCH">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
-      </Button>
-      <Button layoutX="979.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnCLEAROnAction" prefHeight="53.0" prefWidth="120.0" style="-fx-background-color: green;" text="CLEAR">
+      </JFXButton>
+      <JFXButton layoutX="1388.0" layoutY="687.0" onAction="#btnBACKOnAction" prefHeight="53.0" prefWidth="83.0" style="-fx-background-radius: 20;" styleClass="logout" stylesheets="@../css/DashFile.css" text="BACK">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
-      </Button>
+      </JFXButton>
    </children>
 </AnchorPane>

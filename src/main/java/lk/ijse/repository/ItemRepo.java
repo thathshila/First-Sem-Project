@@ -30,6 +30,22 @@ public class ItemRepo {
         return  false;
     }
 
+    public static List<String> getItem() throws SQLException {
+        String sql = "SELECT Item_name FROM Items";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        List<String> itemList = new ArrayList<>();
+
+        ResultSet resultSet = pstm.executeQuery();
+        while (resultSet.next()) {
+            String id = resultSet.getString(1);
+            itemList.add(id);
+        }
+        return itemList;
+
+    }
 
     public static Item searchItem(String id) throws SQLException {
         String sql = "SELECT * FROM Items WHERE Item_id = ?";

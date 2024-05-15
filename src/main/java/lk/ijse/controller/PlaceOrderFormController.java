@@ -117,12 +117,13 @@ public class PlaceOrderFormController {
 
     public void initialize() throws SQLException {
         setDate();
-        getCustomerNIC();
+        //getCustomerNIC();
         getItemIds();
         getUserId();
         setCellValueFactory();
         getCurrentOrderId();
         setNIC();
+        setItemName();
     }
 
     private void setNIC() throws SQLException {
@@ -136,6 +137,16 @@ public class PlaceOrderFormController {
         TextFields.bindAutoCompletion(txtNIC, obList);
     }
 
+  public void   setItemName() throws SQLException {
+      List<String> item = ItemRepo.getItem();
+      ObservableList<String> obList = FXCollections.observableArrayList();
+
+      for (String n : item){
+          obList.add(n);
+      }
+
+      TextFields.bindAutoCompletion(txtItemName, obList);
+  }
     private void getCurrentOrderId() {
         try {
             String currentId = OrderRepo.getCurrentId();
@@ -318,7 +329,7 @@ public class PlaceOrderFormController {
             }
         }
 
-        @FXML
+     /*   @FXML
         void combNICOnAction (ActionEvent event){
             String nic =  combNIC.getValue();
 
@@ -333,7 +344,7 @@ public class PlaceOrderFormController {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
 
         @FXML
         void btnPlaceOrderOnAction (ActionEvent event) throws JRException, SQLException {
