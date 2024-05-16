@@ -25,20 +25,20 @@
             <Font name="DejaVu Sans Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="txtEmployeeId" layoutX="572.0" layoutY="127.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtEmployeeId" layoutX="572.0" layoutY="127.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="576.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EmployeeId">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtEmployeeName" layoutX="983.0" layoutY="124.0" onKeyReleased="#txtEmployeeNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
-      <TextField fx:id="txtContact" layoutX="572.0" layoutY="223.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
-      <TextField fx:id="txtSalary" layoutX="572.0" layoutY="318.0" onKeyReleased="#txtSalaryOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
-      <TextField fx:id="txtAddress" layoutX="572.0" layoutY="416.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
-      <TextField fx:id="txtPosition" layoutX="572.0" layoutY="501.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
-      <TextField fx:id="txtDate" layoutX="987.0" layoutY="213.0" onKeyReleased="#txtDateOnKeyReleased" prefHeight="30.0" prefWidth="307.0" style="-fx-background-color: e5989b;" />
-      <TextField fx:id="txtWorkHours" layoutX="984.0" layoutY="318.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
-      <JFXComboBox fx:id="comUserId" layoutX="977.0" layoutY="504.0" prefHeight="24.0" prefWidth="307.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtEmployeeName" layoutX="983.0" layoutY="124.0" onKeyReleased="#txtEmployeeNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
+      <TextField fx:id="txtContact" layoutX="572.0" layoutY="223.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
+      <TextField fx:id="txtSalary" layoutX="572.0" layoutY="318.0" onKeyReleased="#txtSalaryOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
+      <TextField fx:id="txtAddress" layoutX="572.0" layoutY="416.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
+      <TextField fx:id="txtPosition" layoutX="572.0" layoutY="501.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
+      <TextField fx:id="txtDate" layoutX="987.0" layoutY="213.0" onKeyReleased="#txtDateOnKeyReleased" prefHeight="30.0" prefWidth="307.0" style="-fx-background-color: abff4f;" />
+      <TextField fx:id="txtWorkHours" layoutX="984.0" layoutY="318.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
+      <JFXComboBox fx:id="comUserId" layoutX="977.0" layoutY="504.0" prefHeight="24.0" prefWidth="307.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="989.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EmployeeName">
          <font>
             <Font name="System Bold" size="17.0" />
@@ -97,7 +97,7 @@
             <TableColumn fx:id="colPosition" prefWidth="124.0" text="Position" />
         </columns>
       </TableView>
-      <ChoiceBox fx:id="choiceAttendance" layoutX="984.0" layoutY="416.0" prefHeight="30.0" prefWidth="307.0" style="-fx-background-color: e5989b;" />
+      <ChoiceBox fx:id="choiceAttendance" layoutX="984.0" layoutY="416.0" prefHeight="30.0" prefWidth="307.0" style="-fx-background-color: abff4f;" />
       <JFXButton fx:id="btnSAVE" layoutX="1370.0" layoutY="198.0" onAction="#btnSAVEOnAction" prefHeight="45.0" prefWidth="119.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="SAVE">
          <font>
             <Font name="System Bold" size="15.0" />

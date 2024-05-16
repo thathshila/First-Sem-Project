@@ -34,6 +34,7 @@ public class DashboardFormController {
         }
         setCustomerCount(customerCount);
     }
+
     private void setCustomerCount(int customerCount) {
         lblCustomerCount.setText(String.valueOf(customerCount));
     }
@@ -49,15 +50,6 @@ public class DashboardFormController {
             return resultSet.getInt("customer_count");
         }
         return 0;
-    }
-    public void btnEXITOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane rootNode1 = FXMLLoader.load(this.getClass().getResource("/view/LoginForm.fxml"));
-
-        Scene scene = new Scene(rootNode1);
-
-        Stage stage = (Stage) this.rootNode1.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Login Form");
     }
 }
 

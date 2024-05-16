@@ -26,13 +26,13 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtSupplierName" layoutX="996.0" layoutY="166.0" onKeyReleased="#txtSupplierNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtSupplierName" layoutX="996.0" layoutY="166.0" onKeyReleased="#txtSupplierNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="1006.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SupplierName">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtContact" layoutX="522.0" layoutY="261.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtContact" layoutX="522.0" layoutY="261.0" onKeyReleased="#txtContactOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="532.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
          <font>
             <Font name="System Bold" size="16.0" />
@@ -59,31 +59,31 @@
             </LinearGradient>
          </fill>
       </Text>
-      <TextField fx:id="txtAddress" layoutX="996.0" layoutY="261.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtAddress" layoutX="996.0" layoutY="261.0" onKeyReleased="#txtAddressOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="1010.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtProductName" layoutX="522.0" layoutY="411.0" onKeyReleased="#txtProductNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtProductName" layoutX="522.0" layoutY="411.0" onKeyReleased="#txtProductNameOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="526.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ProductName">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtQuantity" layoutX="522.0" layoutY="335.0" onKeyReleased="#txtQuantityOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtQuantity" layoutX="522.0" layoutY="335.0" onKeyReleased="#txtQuantityOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="528.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtUnitPrice" layoutX="522.0" layoutY="498.0" onKeyReleased="#txtUnitPriceOnKeyRelaesed" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtUnitPrice" layoutX="522.0" layoutY="498.0" onKeyReleased="#txtUnitPriceOnKeyRelaesed" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="526.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UnitPrice">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtNIC" layoutX="996.0" layoutY="373.0" onKeyReleased="#txtNICOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtNIC" layoutX="996.0" layoutY="373.0" onKeyReleased="#txtNICOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <TableView fx:id="tblSupplier" layoutX="522.0" layoutY="569.0" prefHeight="214.0" prefWidth="824.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="64.0" text="Id" />
@@ -102,13 +102,13 @@
             <Image url="@../asserts/3.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtSupplierId" layoutX="522.0" layoutY="166.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtSupplierId" layoutX="522.0" layoutY="166.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="1010.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtDate" layoutX="1000.0" layoutY="498.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtDate" layoutX="1000.0" layoutY="498.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
       <Text layoutX="1016.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
          <font>
             <Font name="System Bold" size="16.0" />

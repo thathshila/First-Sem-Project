@@ -4,10 +4,12 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.db.DbConnection;
 
 import java.io.IOException;
@@ -20,6 +22,8 @@ public class MainFormController {
 
     @FXML
     private AnchorPane anpmain1;
+
+    public AnchorPane rootNode;
 
     @FXML
     private AnchorPane anpmain2;
@@ -120,11 +124,22 @@ public class MainFormController {
 
     @FXML
     public void btnExitOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane supplierPane = FXMLLoader.load(this.getClass().getResource("/view/LoginForm.fxml"));
+      //  AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/LoginForm.fxml"));
+       FXMLLoader loader= new FXMLLoader(getClass().getResource("/view/LoginForm.fxml"));
+        AnchorPane anchorPane = loader.load();
 
+     //   MainFormController mainFormController =loader.getController();
+    //    mainFormController.setUserID(username);
 
-        anpmain1.getChildren().clear();
-        anpmain1.getChildren().add(supplierPane);
+        Scene scene = new Scene(anchorPane);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.setScene(anchorPane.getScene());
+        stage.centerOnScreen();
+        stage.setTitle("Main Form");
+        stage.show();
+        anchorPane.getScene().getWindow().hide();
     }
 
 
