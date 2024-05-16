@@ -15,7 +15,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <TextField fx:id="txtUserId" layoutX="980.0" layoutY="192.0" onKeyReleased="#txtUserIdOnKeyReleased" prefHeight="39.0" prefWidth="294.0" style="-fx-background-color: e5989b;" />
+      <TextField fx:id="txtUserId" layoutX="980.0" layoutY="192.0" prefHeight="39.0" prefWidth="294.0" style="-fx-background-color: e5989b;" />
       <Text layoutX="980.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserId">
          <font>
             <Font name="System Bold" size="17.0" />

@@ -12,44 +12,51 @@
 
 <AnchorPane fx:id="rootNode" prefHeight="836.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
-      <Text layoutX="356.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SECRET BLOOM PLANT NURSERY">
+      <Text layoutX="775.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SECRET BLOOM PLANT NURSERY">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <ImageView fitHeight="141.0" fitWidth="167.0" layoutX="1361.0" layoutY="34.0">
+      <ImageView fitHeight="141.0" fitWidth="167.0" layoutX="1327.0" layoutY="14.0">
          <image>
             <Image url="@../asserts/3.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="996.0" layoutY="587.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="108.0" style="-fx-background-color: green;" styleClass="logout1" stylesheets="@../css/DashFile.css" text="EXIT">
+      <Button layoutX="1376.0" layoutY="597.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="108.0" style="-fx-background-color: green;" styleClass="logout1" stylesheets="@../css/DashFile.css" text="EXIT">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <TextArea layoutX="148.0" layoutY="125.0" prefHeight="125.0" prefWidth="252.0" style="-fx-background-color: lightgreen;" />
-      <Label fx:id="lblCustomerCount" layoutX="223.0" layoutY="169.0" prefHeight="68.0" prefWidth="87.0">
+      <TextArea layoutX="643.0" layoutY="134.0" prefHeight="125.0" prefWidth="252.0" style="-fx-background-color: lightgreen;" />
+      <Label fx:id="lblCustomerCount" layoutX="718.0" layoutY="178.0" prefHeight="68.0" prefWidth="87.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <Label layoutX="90.0" layoutY="287.0" prefHeight="16.0" prefWidth="135.0" />
-      <Label alignment="CENTER" layoutX="130.0" layoutY="126.0" prefHeight="50.0" prefWidth="288.0" text="CUSTOMER COUNT" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="625.0" layoutY="135.0" prefHeight="50.0" prefWidth="288.0" text="CUSTOMER COUNT" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextArea layoutX="459.0" layoutY="125.0" prefHeight="125.0" prefWidth="252.0" style="-fx-background-color: green;" />
-      <Label alignment="CENTER" layoutX="452.0" layoutY="125.0" prefHeight="50.0" prefWidth="266.0" text="SUPPLIER COUNT">
+      <TextArea layoutX="1004.0" layoutY="134.0" prefHeight="125.0" prefWidth="243.0" style="-fx-background-color: green;" />
+      <Label alignment="CENTER" layoutX="988.0" layoutY="134.0" prefHeight="50.0" prefWidth="266.0" text="SUPPLIER COUNT">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblSupplierCount" layoutX="559.0" layoutY="181.0" prefHeight="50.0" prefWidth="67.0" />
-      <ImageView fitHeight="429.0" fitWidth="808.0" layoutX="102.0" layoutY="264.0">
+      <Label fx:id="lblSupplierCount" layoutX="1095.0" layoutY="190.0" prefHeight="50.0" prefWidth="67.0" />
+      <JFXButton fx:id="btnEXIT" layoutX="1401.0" layoutY="725.0" onAction="#btnEXITOnAction" prefHeight="68.0" prefWidth="101.0" text="EXIT" />
+      <TextArea layoutX="643.0" layoutY="348.0" prefHeight="141.0" prefWidth="252.0" />
+      <Label layoutX="639.0" layoutY="362.0" prefHeight="19.0" prefWidth="273.0" text="         EMPLOYEE  COUNT">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="740.0" layoutY="413.0" prefHeight="50.0" prefWidth="59.0" />
+      <ImageView fitHeight="836.0" fitWidth="641.0">
          <image>
-            <Image url="@../asserts/33.png" />
+            <Image url="@../asserts/da.jpg" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnEXIT" layoutX="1401.0" layoutY="725.0" onAction="#btnEXITOnAction" prefHeight="68.0" prefWidth="101.0" text="EXIT" />
    </children>
 </AnchorPane>

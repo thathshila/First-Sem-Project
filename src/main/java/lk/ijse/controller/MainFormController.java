@@ -75,11 +75,11 @@ public class MainFormController {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
-        AnchorPane dashbordPane = FXMLLoader.load(this.getClass().getResource("/view/DashboardForm.fxml"));
+        AnchorPane dashboradPane = FXMLLoader.load(this.getClass().getResource("/view/DashboardForm.fxml"));
 
 
         anpmain1.getChildren().clear();
-        anpmain1.getChildren().add(dashbordPane);
+        anpmain1.getChildren().add(dashboradPane);
     }
 
     @FXML
