@@ -42,10 +42,6 @@ public class LoginFormController {
         username = txtUsername.getText();
        String pw = txtPassword.getText();
 
-       // String username = "Ashi";
-    //    String pw = "asha123";
-
-
 
         try {
             checkCredential(username, pw);
@@ -92,14 +88,6 @@ public class LoginFormController {
         stage.setTitle("Main Form");
         stage.show();
         rootNode.getScene().getWindow().hide();
-      /*  AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/MainForm.fxml"));
-
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Main Form");*/
 }
     @FXML
    public void btnRegisterOnAction(ActionEvent event) throws IOException {

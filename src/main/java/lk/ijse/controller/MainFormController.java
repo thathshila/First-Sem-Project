@@ -124,12 +124,9 @@ public class MainFormController {
 
     @FXML
     public void btnExitOnAction(ActionEvent actionEvent) throws IOException {
-      //  AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/LoginForm.fxml"));
+
        FXMLLoader loader= new FXMLLoader(getClass().getResource("/view/LoginForm.fxml"));
         AnchorPane anchorPane = loader.load();
-
-     //   MainFormController mainFormController =loader.getController();
-    //    mainFormController.setUserID(username);
 
         Scene scene = new Scene(anchorPane);
         Stage stage = new Stage();

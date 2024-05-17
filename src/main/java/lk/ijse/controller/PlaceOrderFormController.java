@@ -119,8 +119,6 @@ public class PlaceOrderFormController {
 
     public void initialize() throws SQLException {
         setDate();
-        //getCustomerNIC();
-     //   getItemIds();
         getUserId();
         setCellValueFactory();
         getCurrentOrderId();
@@ -185,39 +183,6 @@ public class PlaceOrderFormController {
     }
 
 
-
-   /* private void getCustomerNIC() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-
-        try {
-            List<String> nicList = CustomerRepo.getNIC();
-
-            for (String nic : nicList) {
-                obList.add(nic);
-            }
-
-            combNIC.setItems(obList);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private void getItemIds() {
-        ObservableList<String> obList = FXCollections.observableArrayList();
-        try {
-            List<String> itemIdList = ItemRepo.getItemId();
-
-            for (String itemId : itemIdList) {
-                obList.add(itemId);
-            }
-            combItemId.setItems(obList);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
-
     private void getUserId() {
         ObservableList<String> obList = FXCollections.observableArrayList();
         try {
@@ -230,8 +195,6 @@ public class PlaceOrderFormController {
             throw new RuntimeException(e);
         }
     }
-
-
 
     @FXML
     void btnADDOnAction(ActionEvent event) {
@@ -315,28 +278,12 @@ public class PlaceOrderFormController {
         }
 
 
-      /*  @FXML
-        void combItemIdOnAction (ActionEvent event){
-            String item_id = (String) combItemId.getValue();
-
-            try {
-                Item item = ItemRepo.searchItem(item_id);
-
-                txtItemName.setText(item.getName());
-                txtQtyOnHand.setText(String.valueOf(item.getQty()));
-                txtPrice.setText(String.valueOf(item.getPrice()));
-
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }*/
     public void txtItemNameOnAction(ActionEvent actionEvent) throws IOException {
         String itemName = txtItemName.getText();
 
         try {
             Item item = ItemRepo.searchItem(itemName);
             txtItemId.setText(item.getItem_id());
-            //txtItemName.setText(item.getName());
             txtQtyOnHand.setText(String.valueOf(item.getQty()));
             txtPrice.setText(String.valueOf(item.getPrice()));
 
@@ -409,25 +356,6 @@ public class PlaceOrderFormController {
 
         }
 
-  /*  private void generateBill(String orderId) {
-        try {
-            String netTotal = calculateNetTotal(orderId);
-
-            JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/Report/PlaceOrder.jrxml");
-            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
-
-                Map<String, Object> parameters = new HashMap<>();
-                parameters.put("orderId", orderId);
-                parameters.put("total", netTotal);
-
-                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, DbConnection.getInstance().getConnection());
-                JasperViewer.viewReport(jasperPrint, false);
-
-         } catch (JRException | SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
-
     public void makeOrderBill() throws JRException, SQLException {
         JasperDesign jasperDesign = JRXmlLoader.load("src/main/resources/reports/ORDERBILL.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
@@ -442,8 +370,6 @@ public class PlaceOrderFormController {
     public void btnGenareteBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
 
     }
-   /* private String calculateNetTotal(String orderId) {
-        return PlaceOrderRepo.calculateNetTotal(orderId);
-    }*/
+
 }
 
