@@ -300,6 +300,7 @@ public class EmployeeFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         loadAllEmployees();
+        clearFields();
     }
     private void getCurrentEmployeeId() throws SQLException {
         String currentId = EmployeeRepo.getCurrentId();

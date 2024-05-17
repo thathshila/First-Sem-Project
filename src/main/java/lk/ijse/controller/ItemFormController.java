@@ -216,8 +216,8 @@ public class ItemFormController {
 
     @FXML
     void btnSEARCHOnAction(ActionEvent event) throws SQLException {
-        String id = txtItemId.getText();
-        Item item = ItemRepo.searchItem(id);
+        String name = txtItemName.getText();
+        Item item = ItemRepo.searchItem(name);
         if (item != null) {
             txtItemId.setText(item.getItem_id());
             txtQuantity.setText(String.valueOf(item.getQty()));
@@ -249,6 +249,7 @@ public class ItemFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        clearFields();
     }
 
     public void mouseClickOnAction(MouseEvent mouseEvent) {

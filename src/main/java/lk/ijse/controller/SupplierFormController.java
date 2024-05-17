@@ -292,6 +292,7 @@ public class SupplierFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        clearFields();
     }
 
     public void tblSupplierOnMouseClicked(MouseEvent mouseEvent) {
