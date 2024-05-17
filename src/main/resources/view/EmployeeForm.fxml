@@ -17,7 +17,7 @@
    <children>
       <ImageView fitHeight="139.0" fitWidth="163.0" layoutX="1349.0">
          <image>
-            <Image url="@../asserts/3.jpg" />
+            <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
       <Text layoutX="836.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MANAGE  EMPLOYEES">

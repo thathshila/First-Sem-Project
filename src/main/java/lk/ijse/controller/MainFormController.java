@@ -136,7 +136,7 @@ public class MainFormController {
         stage.centerOnScreen();
         stage.setTitle("Main Form");
         stage.show();
-        anchorPane.getScene().getWindow().hide();
+        anpmain1.getScene().getWindow().hide();
     }
 
 

@@ -33,7 +33,7 @@ import org.controlsfx.control.textfield.TextFields;
 
 public class PlaceOrderFormController {
 
-    public TextField txtNIC;
+
     @FXML
     private Button btnADD;
 
@@ -99,6 +99,8 @@ public class PlaceOrderFormController {
 
     @FXML
     private TextField txtDate;
+    @FXML
+    public TextField txtNIC;
 
     @FXML
     private TextField txtOrderId;
@@ -114,6 +116,9 @@ public class PlaceOrderFormController {
 
     @FXML
     private TextField txtItemName;
+
+    @FXML
+    private Label lblBalance;
 
     private ObservableList<CartTm> obList = FXCollections.observableArrayList();
 
@@ -253,7 +258,7 @@ public class PlaceOrderFormController {
         for (int i = 0; i < tblPlaceOrder.getItems().size(); i++) {
             netBalance += (double) colTotal.getCellData(i);
         }
-        txtAreaNetBalance.setText(String.valueOf(netBalance));
+        lblBalance.setText(String.valueOf(netBalance));
         }
 
 
@@ -344,7 +349,6 @@ public class PlaceOrderFormController {
                     calculateNetTotal();
                     makeOrderBill();
                     getCurrentOrderId();
-                 //   generateBill(orderId);
 
                 }else {
                     new Alert(Alert.AlertType.WARNING, "Order Placed Unsuccessfully!").show();
@@ -365,10 +369,6 @@ public class PlaceOrderFormController {
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
         JasperViewer.viewReport(jasperPrint, false);
-    }
-
-    public void btnGenareteBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
-
     }
 
 }

@@ -21,7 +21,7 @@
       </Text>
       <ImageView fitHeight="118.0" fitWidth="154.0" layoutX="1284.0" layoutY="14.0">
          <image>
-            <Image url="@../asserts/3.jpg" />
+            <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="txtCustomerId" layoutX="562.0" layoutY="154.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
@@ -86,7 +86,7 @@
       <AnchorPane prefHeight="865.0" prefWidth="550.0" />
       <ImageView fitHeight="868.0" fitWidth="557.0">
          <image>
-            <Image url="@../asserts/35.jpg" />
+            <Image url="@../asserts/emform.jpg" />
          </image>
       </ImageView>
       <JFXButton fx:id="btnDELETE" layoutX="1258.0" layoutY="215.0" onAction="#btnDELETEOnAction" prefHeight="52.0" prefWidth="162.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="DELETE">

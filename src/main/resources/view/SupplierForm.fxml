@@ -99,7 +99,7 @@
       </TableView>
       <ImageView fitHeight="122.0" fitWidth="152.0" layoutX="1354.0" layoutY="14.0">
          <image>
-            <Image url="@../asserts/3.jpg" />
+            <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="txtSupplierId" layoutX="522.0" layoutY="166.0" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />

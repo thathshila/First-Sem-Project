@@ -2,7 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import javafx.scene.control.Button?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -20,13 +21,13 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Text>
-      <ImageView fitHeight="106.0" fitWidth="146.0" layoutX="1359.0" layoutY="1.0">
+      <ImageView fitHeight="124.0" fitWidth="158.0" layoutX="1332.0" layoutY="14.0">
          <image>
-            <Image url="@../asserts/3.jpg" />
+            <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtOrderId" layoutX="134.0" layoutY="108.0" prefHeight="28.0" prefWidth="219.0" />
-      <TextField fx:id="txtDate" layoutX="134.0" layoutY="164.0" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="txtOrderId" layoutX="134.0" layoutY="108.0" prefHeight="30.0" prefWidth="244.0" />
+      <TextField fx:id="txtDate" layoutX="134.0" layoutY="164.0" prefHeight="28.0" prefWidth="244.0" />
       <Text layoutX="23.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Id">
          <font>
             <Font size="17.0" />
@@ -37,36 +38,35 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Text layoutX="1009.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id">
+      <Text layoutX="466.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Button fx:id="btnNew" layoutX="1307.0" layoutY="158.0" mnemonicParsing="false" onAction="#btnNewOnAction" prefHeight="39.0" prefWidth="104.0" style="-fx-background-color: green;" text="NEW" />
-      <TextField fx:id="txtCustomerName" layoutX="1198.0" layoutY="293.0" prefHeight="39.0" prefWidth="219.0" />
-      <Text layoutX="974.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name">
+      <TextField fx:id="txtCustomerName" layoutX="655.0" layoutY="262.0" prefHeight="30.0" prefWidth="244.0" />
+      <Text layoutX="431.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text layoutX="556.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC">
+      <Text layoutX="1023.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIC">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtCustomerId" layoutX="1198.0" layoutY="241.0" prefHeight="39.0" prefWidth="219.0" />
-      <Text layoutX="1043.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
+      <TextField fx:id="txtCustomerId" layoutX="655.0" layoutY="210.0" prefHeight="30.0" prefWidth="244.0" />
+      <Text layoutX="500.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtAddress" layoutX="1198.0" layoutY="409.0" prefHeight="39.0" prefWidth="219.0" />
-      <Text layoutX="1042.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+      <TextField fx:id="txtAddress" layoutX="655.0" layoutY="378.0" prefHeight="30.0" prefWidth="244.0" />
+      <Text layoutX="499.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TableView fx:id="tblPlaceOrder" layoutX="317.0" layoutY="540.0" prefHeight="264.0" prefWidth="915.0">
+      <TableView fx:id="tblPlaceOrder" layoutX="195.0" layoutY="535.0" prefHeight="264.0" prefWidth="915.0">
         <columns>
           <TableColumn fx:id="colItemId" prefWidth="120.0" text="ItemId" />
           <TableColumn fx:id="colItemName" prefWidth="166.0" text="ItemName" />
@@ -81,53 +81,88 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtItemName" layoutX="134.0" layoutY="272.0" onAction="#txtItemNameOnAction" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="txtItemName" layoutX="134.0" layoutY="272.0" onAction="#txtItemNameOnAction" prefHeight="28.0" prefWidth="244.0" />
       <Text layoutX="8.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHand">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text layoutX="549.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
+      <Text layoutX="1016.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtQuantity" layoutX="542.0" layoutY="252.0" prefHeight="39.0" prefWidth="244.0" />
-      <Button fx:id="btnADD" layoutX="1279.0" layoutY="469.0" mnemonicParsing="false" onAction="#btnADDOnAction" prefHeight="51.0" prefWidth="138.0" style="-fx-background-color: green;" text="ADD TO CART" />
-      <TextArea fx:id="txtAreaNetBalance" layoutX="1308.0" layoutY="543.0" prefHeight="91.0" prefWidth="146.0" style="-fx-background-color: green;" />
-      <Text layoutX="1333.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Balance">
+      <TextField fx:id="txtQuantity" layoutX="1009.0" layoutY="256.0" prefHeight="28.0" prefWidth="263.0" />
+      <TextArea fx:id="txtAreaNetBalance" layoutX="1278.0" layoutY="397.0" prefHeight="143.0" prefWidth="183.0" style="-fx-background-color: green;" />
+      <Text layoutX="1319.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Balance">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="combUserId" layoutX="555.0" layoutY="350.0" prefHeight="39.0" prefWidth="219.0" style="-fx-background-color: white;" />
-      <Text layoutX="562.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Id">
+      <JFXComboBox fx:id="combUserId" layoutX="1022.0" layoutY="354.0" prefHeight="30.0" prefWidth="244.0" style="-fx-background-color: white;" />
+      <Text layoutX="1029.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Id">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtContact" layoutX="1198.0" layoutY="349.0" prefHeight="39.0" prefWidth="219.0" />
-      <TextField fx:id="txtQtyOnHand" layoutX="134.0" layoutY="383.0" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="txtContact" layoutX="655.0" layoutY="318.0" prefHeight="30.0" prefWidth="244.0" />
+      <TextField fx:id="txtQtyOnHand" layoutX="134.0" layoutY="383.0" prefHeight="28.0" prefWidth="244.0" />
       <Text layoutX="22.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemName">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <TextField fx:id="txtPrice" layoutX="134.0" layoutY="328.0" prefHeight="28.0" prefWidth="219.0" />
+      <TextField fx:id="txtPrice" layoutX="134.0" layoutY="328.0" prefHeight="28.0" prefWidth="244.0" />
       <Text layoutX="46.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text layoutX="991.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Customer">
+      <Text layoutX="479.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Customer">
          <font>
             <Font size="19.0" />
          </font>
       </Text>
-      <JFXButton fx:id="btnGenareteBill" layoutX="525.0" layoutY="423.0" onAction="#btnGenareteBillOnAction" text="BILL" />
-      <TextField fx:id="txtNIC" layoutX="548.0" layoutY="155.0" onAction="#txtNICOnAction" prefHeight="39.0" prefWidth="244.0" />
-      <JFXButton fx:id="btnPlaceOrder" layoutX="1330.0" layoutY="672.0" onAction="#btnPlaceOrderOnAction" prefHeight="68.0" prefWidth="125.0" text="Place Order" />
-      <JFXButton fx:id="btnBack" layoutX="1340.0" layoutY="740.0" onAction="#btnBackOnAction" prefHeight="59.0" prefWidth="104.0" text="BACK" />
-      <TextField fx:id="txtItemId" layoutX="134.0" layoutY="213.0" prefHeight="30.0" prefWidth="219.0" />
+      <TextField fx:id="txtNIC" layoutX="1015.0" layoutY="159.0" onAction="#txtNICOnAction" prefHeight="28.0" prefWidth="263.0" />
+      <JFXButton fx:id="btnPlaceOrder" layoutX="1212.0" layoutY="633.0" onAction="#btnPlaceOrderOnAction" prefHeight="68.0" prefWidth="205.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="Place Order">
+         <styleClass>
+            <String fx:value="boader" />
+            <String fx:value="logout" />
+         </styleClass>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btnBack" layoutX="1213.0" layoutY="708.0" onAction="#btnBackOnAction" prefHeight="59.0" prefWidth="205.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="BACK">
+         <styleClass>
+            <String fx:value="boader" />
+            <String fx:value="logout" />
+         </styleClass>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></JFXButton>
+      <TextField fx:id="txtItemId" layoutX="134.0" layoutY="213.0" prefHeight="30.0" prefWidth="244.0" />
+      <JFXButton fx:id="btnNew" layoutX="708.0" layoutY="123.0" onAction="#btnNewOnAction" prefHeight="51.0" prefWidth="97.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="NEW">
+         <styleClass>
+            <String fx:value="boader" />
+            <String fx:value="logout" />
+         </styleClass>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnADD" layoutX="1218.0" layoutY="557.0" onAction="#btnADDOnAction" prefHeight="68.0" prefWidth="193.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="ADD TO CART">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <styleClass>
+            <String fx:value="boader" />
+            <String fx:value="logout" />
+         </styleClass>
+      </JFXButton>
+      <Label fx:id="lblBalance" layoutX="1325.0" layoutY="425.0" prefHeight="51.0" prefWidth="89.0" text="     ">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

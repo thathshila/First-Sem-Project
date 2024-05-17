@@ -20,7 +20,7 @@
       </Text>
       <ImageView fitHeight="129.0" fitWidth="155.0" layoutX="1344.0" layoutY="14.0">
          <image>
-            <Image url="@../asserts/3.jpg" />
+            <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
       <Text layoutX="635.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ItemId">

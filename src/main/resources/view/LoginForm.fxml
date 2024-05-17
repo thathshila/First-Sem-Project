@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="1018.0" fitWidth="1960.0" layoutX="1.0" layoutY="-7.0">
          <image>
-            <Image url="@../asserts/new.png" />
+            <Image url="@../asserts/mainform.png" />
          </image>
       </ImageView>
       <AnchorPane fx:id="rootNode1" layoutX="202.0" layoutY="117.0" prefHeight="786.0" prefWidth="1490.0" style="-fx-background-color: white;">
@@ -63,7 +63,7 @@
             </ImageView>
             <ImageView fitHeight="144.0" fitWidth="181.0" layoutX="1306.0" layoutY="61.0">
                <image>
-                  <Image url="@../asserts/3.jpg" />
+                  <Image url="@../asserts/logo.jpg" />
                </image>
             </ImageView>
          </children>

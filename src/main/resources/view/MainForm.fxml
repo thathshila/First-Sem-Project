@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="1017.0" fitWidth="1981.0" layoutX="-8.0">
          <image>
-            <Image url="@../asserts/new.png" />
+            <Image url="@../asserts/mainform.png" />
          </image>
       </ImageView>
       <AnchorPane fx:id="anpmain1" layoutX="423.0" layoutY="181.0" prefHeight="836.0" prefWidth="1550.0" style="-fx-background-color: white;" />

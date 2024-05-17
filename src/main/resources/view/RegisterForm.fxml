@@ -42,7 +42,7 @@
       <TextField fx:id="txtPassword" layoutX="1278.0" layoutY="570.0" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="39.0" prefWidth="294.0" style="-fx-background-color: abff4f;" />
       <ImageView fitHeight="125.0" fitWidth="152.0" layoutX="1765.0" layoutY="45.0">
          <image>
-            <Image url="@../asserts/3.jpg" />
+            <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
       <JFXButton fx:id="btnRegisterNow" layoutX="1496.0" layoutY="733.0" onAction="#btnRegisterNowOnAction" prefHeight="68.0" prefWidth="159.0" style="-fx-background-radius: 20;" stylesheets="@../css/DashFile.css" text="Register  Now">

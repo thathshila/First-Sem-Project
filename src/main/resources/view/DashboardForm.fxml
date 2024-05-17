@@ -17,7 +17,7 @@
       </Text>
       <ImageView fitHeight="141.0" fitWidth="167.0" layoutX="1327.0" layoutY="14.0">
          <image>
-            <Image url="@../asserts/3.jpg" />
+            <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
       <TextArea layoutX="681.0" layoutY="142.0" prefHeight="125.0" prefWidth="252.0" style="-fx-background-color: lightgreen;" />
@@ -38,17 +38,23 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblSupplierCount" layoutX="1095.0" layoutY="190.0" prefHeight="50.0" prefWidth="67.0" />
+      <Label fx:id="lblSupplierCount" layoutX="1095.0" layoutY="190.0" prefHeight="50.0" prefWidth="67.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
       <TextArea layoutX="675.0" layoutY="348.0" prefHeight="125.0" prefWidth="252.0" />
       <Label layoutX="671.0" layoutY="362.0" prefHeight="19.0" prefWidth="273.0" text="         EMPLOYEE  COUNT">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblEmployeeCount" layoutX="778.0" layoutY="411.0" prefHeight="50.0" prefWidth="59.0" />
+      <Label fx:id="lblEmployeeCount" layoutX="778.0" layoutY="411.0" prefHeight="50.0" prefWidth="59.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
       <ImageView fitHeight="836.0" fitWidth="641.0">
          <image>
-            <Image url="@../asserts/da.jpg" />
+            <Image url="@../asserts/shboard.jpg" />
          </image>
       </ImageView>
    </children>

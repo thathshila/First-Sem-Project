@@ -21,13 +21,14 @@ public class DashboardFormController {
 
     public AnchorPane rootNode;
     public AnchorPane rootNode1;
-
+@FXML
     public Label lblCustomerCount;
 
     private int customerCount;
 
+    @FXML
     private Label lblSupplierCount;
-
+@FXML
     private Label lblEmployeeCount;
 
     private  int employeeCount;
@@ -36,15 +37,29 @@ public class DashboardFormController {
     public void initialize() {
         try {
             customerCount = getCustomerCount();
-            supplierCount = getSupplierCount();
-            employeeCount = getEmployeeCount();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         setCustomerCount(customerCount);
+
+        try {
+            supplierCount = getSupplierCount();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
         setSupplierCount(supplierCount);
+
+        try {
+            employeeCount = getEmployeeCount();
+
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
         setEmployeeCount(employeeCount);
     }
+
+
+
 
     private void setEmployeeCount(int employeeCount){ lblEmployeeCount.setText(String.valueOf(employeeCount));}
     private void setCustomerCount(int customerCount) {
