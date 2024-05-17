@@ -356,8 +356,7 @@ public class PlaceOrderFormController {
             }catch (SQLException e){
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-
-
+            clearFields();
         }
 
     public void makeOrderBill() throws JRException, SQLException {
@@ -369,6 +368,24 @@ public class PlaceOrderFormController {
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, data, DbConnection.getInstance().getConnection());
         JasperViewer.viewReport(jasperPrint, false);
+    }
+
+    public void clearFields(){
+        txtItemName.clear();
+        txtOrderId.clear();
+        txtQuantity.clear();
+        txtPrice.clear();
+        txtContact.clear();
+        txtPrice.clear();
+        txtAreaNetBalance.clear();
+        txtDate.clear();
+        txtNIC.clear();
+        txtQtyOnHand.clear();
+        txtCustomerName.clear();
+        txtCustomerId.clear();
+        combUserId.setValue("");
+        txtAddress.clear();
+        txtItemId.clear();
     }
 
 }

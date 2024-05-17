@@ -24,7 +24,7 @@ JOIN
     Items i ON oi.Item_id = i.Item_id
 
 where
-	 o.Order_id =  $P{OrderID} ]]>
+	 o.Order_id =  $P{OrderID}]]>
 	</queryString>
 	<field name="Order_id" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Order_id"/>
@@ -137,7 +137,7 @@ where
 			</staticText>
 			<image>
 				<reportElement x="150" y="10" width="50" height="50" uuid="09e20308-b74e-4104-b27e-a9b0ea7534b0"/>
-				<imageExpression><![CDATA["/home/asha/Desktop/AMMA/plant/src/main/resources/asserts/3.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["/home/asha/Desktop/AMMA/plant/src/main/resources/asserts/logo.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="20" y="70" width="190" height="20" uuid="5b84c0a1-e524-4acc-9276-bb696dc8a4ac"/>
