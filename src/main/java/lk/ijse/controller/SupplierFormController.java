@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import lk.ijse.db.DbConnection;
 import lk.ijse.model.Supplier;
 import lk.ijse.model.tm.SupplierTm;
-import lk.ijse.repository.EmployeeRepo;
 import lk.ijse.repository.SupplierRepo;
 import lk.ijse.util.Regex;
 import net.sf.jasperreports.engine.*;
@@ -244,6 +243,7 @@ public class SupplierFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+        clearFields();
         loadAllSuppliers();
     }
 

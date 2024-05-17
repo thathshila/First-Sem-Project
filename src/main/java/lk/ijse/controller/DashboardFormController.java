@@ -3,38 +3,47 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.db.DbConnection;
+import lk.ijse.repository.OrderRepo;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 
 public class DashboardFormController {
 
     public AnchorPane rootNode;
     public AnchorPane rootNode1;
-@FXML
+    @FXML
     public Label lblCustomerCount;
 
     private int customerCount;
 
     @FXML
     private Label lblSupplierCount;
-@FXML
+
+    @FXML
     private Label lblEmployeeCount;
 
     private  int employeeCount;
     private int supplierCount;
 
     public void initialize() {
+
         try {
             customerCount = getCustomerCount();
         } catch (SQLException e) {
@@ -102,5 +111,6 @@ public class DashboardFormController {
         }
         return 0;
     }
+
 }
 

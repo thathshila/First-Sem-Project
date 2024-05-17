@@ -84,7 +84,7 @@
          </font>
       </Text>
       <TextField fx:id="txtNIC" layoutX="996.0" layoutY="373.0" onKeyReleased="#txtNICOnKeyReleased" prefHeight="30.0" prefWidth="314.0" style="-fx-background-color: abff4f;" />
-      <TableView fx:id="tblSupplier" layoutX="522.0" layoutY="569.0" prefHeight="214.0" prefWidth="824.0">
+      <TableView fx:id="tblSupplier" layoutX="522.0" layoutY="569.0" onMouseClicked="#tblSupplierOnMouseClicked" prefHeight="214.0" prefWidth="824.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="64.0" text="Id" />
           <TableColumn fx:id="colName" prefWidth="62.0" text="Name" />

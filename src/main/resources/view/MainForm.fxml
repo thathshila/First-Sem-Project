@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -120,5 +121,11 @@
             <Image url="@../asserts/icons8-female-user-64.png" />
          </image>
       </ImageView>
+      <Label layoutX="93.0" layoutY="78.0" prefHeight="38.0" prefWidth="88.0" text="Date :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDate" layoutX="179.0" layoutY="86.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparen; -fx-border-color: black;" />
    </children>
 </AnchorPane>

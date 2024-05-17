@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,42 +20,67 @@
             <Image url="@../asserts/logo.jpg" />
          </image>
       </ImageView>
-      <TextArea layoutX="681.0" layoutY="142.0" prefHeight="125.0" prefWidth="252.0" style="-fx-background-color: lightgreen;" />
-      <Label fx:id="lblCustomerCount" layoutX="756.0" layoutY="186.0" prefHeight="68.0" prefWidth="87.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
       <Label layoutX="90.0" layoutY="287.0" prefHeight="16.0" prefWidth="135.0" />
-      <Label alignment="CENTER" layoutX="663.0" layoutY="143.0" prefHeight="50.0" prefWidth="288.0" text="CUSTOMER COUNT" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="1004.0" layoutY="140.0" prefHeight="119.0" prefWidth="243.0" style="-fx-background-color: green;" />
-      <Label alignment="CENTER" layoutX="993.0" layoutY="143.0" prefHeight="50.0" prefWidth="266.0" text="SUPPLIER COUNT">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblSupplierCount" layoutX="1095.0" layoutY="190.0" prefHeight="50.0" prefWidth="67.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Label>
-      <TextArea layoutX="675.0" layoutY="348.0" prefHeight="125.0" prefWidth="252.0" />
-      <Label layoutX="671.0" layoutY="362.0" prefHeight="19.0" prefWidth="273.0" text="         EMPLOYEE  COUNT">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblEmployeeCount" layoutX="778.0" layoutY="411.0" prefHeight="50.0" prefWidth="59.0">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Label>
       <ImageView fitHeight="836.0" fitWidth="641.0">
          <image>
             <Image url="@../asserts/shboard.jpg" />
          </image>
       </ImageView>
+      <AnchorPane layoutX="956.0" layoutY="471.0" prefHeight="200.0" prefWidth="269.0" style="-fx-background-color: gray;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="-9.0" layoutY="19.0" prefHeight="38.0" prefWidth="273.0" text="         EMPLOYEE  COUNT">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblEmployeeCount" layoutX="108.0" layoutY="80.0" prefHeight="50.0" prefWidth="59.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="718.0" layoutY="196.0" prefHeight="200.0" prefWidth="269.0" style="-fx-background-color: gray;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="62.0" prefWidth="263.0" text="CUSTOMER COUNT" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCustomerCount" layoutX="78.0" layoutY="97.0" prefHeight="68.0" prefWidth="87.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1109.0" layoutY="192.0" prefHeight="200.0" prefWidth="269.0" style="-fx-background-color: gray;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="lblCustomerCount1" layoutX="78.0" layoutY="97.0" prefHeight="68.0" prefWidth="87.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="3.0" layoutY="9.0" prefHeight="69.0" prefWidth="266.0" text="SUPPLIER COUNT">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSupplierCount" layoutX="94.0" layoutY="71.0" prefHeight="50.0" prefWidth="67.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
