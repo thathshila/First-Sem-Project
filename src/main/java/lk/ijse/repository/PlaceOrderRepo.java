@@ -64,32 +64,6 @@ public class PlaceOrderRepo {
         }
         return false;
     }
-
-   public static String calculateNetTotal(String orderId) {
-        double netTotal = 0.0;
-
-        String sql = "SELECT SUM(i.Price * oi.qty) " +
-                "FROM Items i " +
-                "JOIN Order_Item oi ON i.Item_id = oi.Item_id " +
-                "WHERE oi.orderId = ?";
-
-
-        try (PreparedStatement statement = DbConnection.getInstance().getConnection().prepareStatement(sql)) {
-            statement.setString(1, orderId);
-
-
-            try (ResultSet resultSet = statement.executeQuery()) {
-
-                while (resultSet.next()) {
-                    double c = resultSet.getDouble(1);
-                    netTotal = netTotal + c;
-                }
-                return String.valueOf((netTotal));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
 
 

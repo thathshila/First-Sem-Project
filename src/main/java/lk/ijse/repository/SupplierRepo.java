@@ -64,13 +64,7 @@ public class SupplierRepo {
         pstm.setObject(8, date);
         pstm.setObject(9, nic);
 
-        int effectedRows = pstm.executeUpdate();
-        if (effectedRows > 0) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Employee save successfully!!!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Can't save this employee").show();
-        }
-        return false;
+        return pstm.executeUpdate() > 0;
     }
 
     public static Supplier SEARCH(String contact) throws SQLException {

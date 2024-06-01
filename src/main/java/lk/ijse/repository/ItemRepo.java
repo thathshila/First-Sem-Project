@@ -21,13 +21,7 @@ public class ItemRepo {
         pstm.setObject(5, description);
         pstm.setObject(6, date);
 
-        int effectedRows = pstm.executeUpdate();
-        if (effectedRows > 0) {
-            new Alert(Alert.AlertType.CONFIRMATION, "Item save successfully!!!").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Can't save this item").show();
-        }
-        return  false;
+        return pstm.executeUpdate() > 0;
     }
 
     public static List<String> getItem() throws SQLException {

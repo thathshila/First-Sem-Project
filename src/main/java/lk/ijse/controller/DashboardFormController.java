@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 
-public class DashboardFormController {
+public class DashboardFormController implements Initializable{
 
     public AnchorPane rootNode;
     public AnchorPane rootNode1;
@@ -42,8 +42,9 @@ public class DashboardFormController {
     private  int employeeCount;
     private int supplierCount;
 
-    public void initialize() {
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             customerCount = getCustomerCount();
         } catch (SQLException e) {
@@ -68,12 +69,14 @@ public class DashboardFormController {
     }
 
 
+    private void setEmployeeCount(int employeeCount){
+        lblEmployeeCount.setText(String.valueOf(employeeCount));
+    }
 
-
-    private void setEmployeeCount(int employeeCount){ lblEmployeeCount.setText(String.valueOf(employeeCount));}
     private void setCustomerCount(int customerCount) {
         lblCustomerCount.setText(String.valueOf(customerCount));
     }
+
     private void setSupplierCount(int supplierCount){ lblSupplierCount.setText(String.valueOf(supplierCount));}
     private int getCustomerCount() throws SQLException {
         String sql = "SELECT COUNT(*) AS customer_count FROM Customer";
@@ -111,6 +114,5 @@ public class DashboardFormController {
         }
         return 0;
     }
-
 }
 

@@ -1,6 +1,5 @@
 package lk.ijse.repository;
 
-import javafx.scene.control.Alert;
 import lk.ijse.db.DbConnection;
 import lk.ijse.model.Customer;
 
@@ -100,8 +99,7 @@ public class CustomerRepo {
     public static List<String> getNIC() throws SQLException {
         String sql = "SELECT Nic FROM Customer";
 
-        PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                .prepareStatement(sql);
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
         List<String> nicList = new ArrayList<>();
 

@@ -39,8 +39,6 @@ public static String getCurrentId() throws SQLException {
     }
     return null;
 }
-
-
 }
 
 
