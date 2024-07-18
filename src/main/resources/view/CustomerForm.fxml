@@ -84,7 +84,7 @@
          </font>
       </JFXButton>
       <AnchorPane prefHeight="865.0" prefWidth="550.0" />
-      <ImageView fitHeight="868.0" fitWidth="557.0">
+      <ImageView fitHeight="868.0" fitWidth="557.0" layoutX="-7.0">
          <image>
             <Image url="@../asserts/emform.jpg" />
          </image>

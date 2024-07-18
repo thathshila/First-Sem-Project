@@ -18,5 +18,4 @@ public class Customer {
     private String Address;
     private String Nic;
     private Date Date;
-
 }

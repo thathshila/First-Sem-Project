@@ -270,8 +270,8 @@ public class EmployeeFormController {
             comUserId.setValue(employee.getUserId());
 
         } else {
-            new Alert(Alert.AlertType.INFORMATION, "Employee not found!").show();
-        }
+           new Alert(Alert.AlertType.INFORMATION, "Employee not found!").show();
+       }
     }
 
     @FXML
